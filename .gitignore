@@ -16,7 +16,8 @@
 locale/_build/
 locale/**/*.js
 
-# misc
+# environment variable
+.env
 .DS_Store
 .env.local
 .env.development.local
