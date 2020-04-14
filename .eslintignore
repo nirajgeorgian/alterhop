@@ -1,0 +1,5 @@
+src/registerServiceWorker.js
+src/**/__tests__/**
+locale/_build/
+locale/**/*.js
+server/**/*
