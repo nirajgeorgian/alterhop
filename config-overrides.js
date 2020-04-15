@@ -8,7 +8,7 @@ module.exports = override(
 	}),
 	addLessLoader({
 		javascriptEnabled: true,
-		modifyVars: { '@primary-color': '#32EB28', '@btn-height-lg': '52px' }
+		modifyVars: {}
 	}),
 	adjustStyleLoaders(({ use: [, css, , resolve, processor] }) => {
 		delete css.options.localIdentName
