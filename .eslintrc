@@ -45,7 +45,7 @@
 		"no-tabs": 0,
 		"sort-imports": 0,
 		"indent": ["error", "tab", { "SwitchCase": 1 }],
-		"linebreak-style": ["error", "unix"],
+		"linebreak-style": ["error", "unix", "windows"],
 		"quotes": ["error", "single", { "avoidEscape": true }],
 		"newline-before-return": "error",
 		"padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],

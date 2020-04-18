@@ -1,38 +1,64 @@
-import React from 'react'
-import { Layout, Row, Col } from 'antd'
-import styles from './App.module.less'
-import Navigation, { Primary, Secondary } from 'components/Navigation'
+import React from 'react';
+import { Link } from 'react-router-dom'
+import 'antd/dist/antd.css';
+import { Layout, Menu } from 'antd';
+import Logo from 'components/Logo/Logo'
+import {
+  DashboardOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
-const { Content, Sider } = Layout
+const { Header, Content, Footer, Sider } = Layout;
 
-const App = () => (
-	<div className={styles.pageWrapper}>
-		<div className={styles.mainWrapper}>
-			<Row>
-				<Layout hasSider={true}>
-					<Col className={styles.mainMenu} xxl={6} xl={6} lg={8} md={8} xs={24} sm={24}>
-						<Sider width="100%" className={styles.navigation}>
-							<Row>
-								<Navigation>
-									<Col span={6}>
-										<Primary />
-									</Col>
-									<Col span={18}>
-										<Secondary />
-									</Col>
-								</Navigation>
-							</Row>
-						</Sider>
-					</Col>
-					<Col xxl={20} xl={20} lg={16} md={16} xs={24} sm={24}>
-						<Layout hasSider={false}>
-							<Content>content</Content>
-						</Layout>
-					</Col>
-				</Layout>
-			</Row>
-		</div>
-	</div>
-)
+class App extends React.Component {
+  state = {
+    collapsed: false,
+  };
+
+  onCollapse = collapsed => {
+    console.log(collapsed);
+    this.setState({ collapsed });
+  };
+
+  render() {
+    return (
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+          <Logo/>
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu.Item key="1">
+              <Link to="/">
+                <DashboardOutlined />
+                <span>Dashboard</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Link to="/profile">
+                <UserOutlined />
+                <span>Profile</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Link to="/company">
+                <TeamOutlined />
+                <span>Company</span>
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout className="site-layout">
+          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Content style={{ margin: '0 16px' }}>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+              Bill is a cat.
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        </Layout>
+      </Layout>
+    );
+  }
+}
 
 export default App
