@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useMemo, useState } from 'react'
 
-import Primary from 'components/navigation/primary'
-import Secondary from 'components/navigation/secondary'
+import Primary from 'components/Navigation/primary'
+import Secondary from 'components/Navigation/secondary'
 import { Switch } from 'react-router-dom'
 
 interface INavigationContext {

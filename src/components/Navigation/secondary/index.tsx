@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom'
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
 
 import React from 'react'
-import styles from 'components/navigation/style.module.less'
+import styles from 'components/Navigation/style.module.less'
 
 const { Sider } = Layout
 
