@@ -2,7 +2,7 @@ import 'index.less'
 
 import * as serviceWorker from './serviceWorker'
 
-import App from 'App'
+import App from 'app'
 import React from 'react'
 import { Router } from 'react-router-dom'
 import history from 'utils/history'

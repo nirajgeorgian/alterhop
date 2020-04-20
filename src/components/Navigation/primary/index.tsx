@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons'
-import styles from 'components/Navigation/style.module.less'
+import styles from 'components/navigation/style.module.less'
 
 const { Sider } = Layout
 
