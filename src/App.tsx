@@ -1,6 +1,7 @@
 import { Col, Layout, Row } from 'antd'
 import Navigation, { Primary, Secondary } from 'components/navigation'
 
+import Loading from 'components/loading'
 import React from 'react'
 import styles from './app.module.less'
 
@@ -19,7 +20,9 @@ const App = () => (
 										<Primary />
 									</Col>
 									<Col span={18}>
-										<Secondary />
+										<Loading loading={true}>
+											<Secondary />
+										</Loading>
 									</Col>
 								</Navigation>
 							</Row>
@@ -27,7 +30,9 @@ const App = () => (
 					</Col>
 					<Col xxl={20} xl={20} lg={16} md={16} xs={24} sm={24}>
 						<Layout hasSider={false}>
-							<Content>content</Content>
+							<Content>
+								<Loading loading={true} message="loading ..." />
+							</Content>
 						</Layout>
 					</Col>
 				</Layout>
