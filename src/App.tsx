@@ -1,7 +1,8 @@
+import { Col, Layout, Row } from 'antd'
+import Navigation, { Primary, Secondary } from 'components/navigation'
+
 import React from 'react'
-import { Layout, Row, Col } from 'antd'
-import styles from './App.module.less'
-import Navigation, { Primary, Secondary } from 'components/Navigation'
+import styles from './app.module.less'
 
 const { Content, Sider } = Layout
 

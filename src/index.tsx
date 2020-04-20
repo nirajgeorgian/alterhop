@@ -1,9 +1,12 @@
-import React from 'react'
-import { render } from 'react-dom'
-import App from './App'
+import 'index.less'
+
 import * as serviceWorker from './serviceWorker'
+
+import App from 'app'
+import React from 'react'
 import { Router } from 'react-router-dom'
 import history from 'utils/history'
+import { render } from 'react-dom'
 
 const MOUNT_NODE = document.getElementById('react-content')
 

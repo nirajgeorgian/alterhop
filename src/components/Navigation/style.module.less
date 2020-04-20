@@ -1,0 +1,25 @@
+.navigation {
+	height: 100vh;
+	width: 100%;
+	position: 'fixed';
+	left: 0;
+
+	.primary {
+		padding: 0.5px 0;
+
+		.selected {
+			border-left: 5px solid white;
+		}
+	}
+
+	.secondary {
+		padding: 0.5rem 1rem;
+
+		.hovered {
+			&:hover {
+				cursor: pointer;
+				background: rgb(47, 69, 102) !important;
+			}
+		}
+	}
+}
