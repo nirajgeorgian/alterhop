@@ -1,4 +1,4 @@
-import { Avatar, Layout, Menu } from 'antd';
+import { Avatar, Button, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -28,6 +28,9 @@ const Primary = () => {
 					<Link to="/company">
 						<Avatar>C</Avatar>
 					</Link>
+				</Menu.Item>
+				<Menu.Item key="4" title="Add A Company">
+					<Button type="primary" shape="circle">+</Button>
 				</Menu.Item>
 			</Menu>
 		</Sider>

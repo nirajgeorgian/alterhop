@@ -12,7 +12,7 @@ const App = () => (
 		<div className={styles.mainWrapper}>
 			<Row>
 				<Layout hasSider={true}>
-					<Col className={styles.mainMenu} xxl={6} xl={6} lg={8} md={8} xs={24} sm={24}>
+					<Col className={styles.mainMenu} span={6} xs={24} sm={12} md={10} lg={8} xl={6}>
 						<Sider width="100%" className={styles.navigation}>
 							<Row>
 								<Navigation>
@@ -28,7 +28,7 @@ const App = () => (
 							</Row>
 						</Sider>
 					</Col>
-					<Col xxl={20} xl={20} lg={16} md={16} xs={24} sm={24}>
+					<Col span={18}>
 						<Layout hasSider={false}>
 							<Content>
 								<Loading loading={true} message="loading ..." />
