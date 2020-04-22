@@ -8,7 +8,7 @@ import styles from 'components/navigation/style.module.less'
 
 const { Sider } = Layout
 
-const Primary = () => {
+const Primary: React.FC<any> = ({ user }) => {
 	const [selectedMenu, changeSelectedMenu] = useState<string>('1')
 	const [visible, setVisible] = useState<boolean>(false)
 	const isSelectedMenu = (menuKey: string) => (selectedMenu === menuKey ? styles.selected : '')
