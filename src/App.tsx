@@ -20,7 +20,7 @@ const App = () => (
 										<Primary />
 									</Col>
 									<Col span={18}>
-										<Loading loading={true}>
+										<Loading loading={false}>
 											<Secondary />
 										</Loading>
 									</Col>
