@@ -1,7 +1,7 @@
 import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd'
 
 import Loading from 'components/loading'
-import EmployeeRange from 'components/EmployeeRange'
+import Range from 'components/range'
 import React from 'react'
 import Search from 'antd/lib/input/Search'
 import UploadCompanyPicture from 'containers/company/upload'
@@ -68,7 +68,7 @@ const Company = () => {
 							</Select>
 						</Form.Item>
 						<Form.Item name="noOfEmployees" label="No. of Employees" rules={[{ validator: validateRange }]}>
-							<EmployeeRange />
+							<Range />
 						</Form.Item>
 						<Form.Item name="hiringStatus" valuePropName="checked">
 							<Checkbox>Hiring Status</Checkbox>

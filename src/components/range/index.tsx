@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form, Input } from 'antd'
+
+import { InputNumber } from 'antd'
 
 interface RangeValue {
 	min?: number
@@ -11,7 +12,7 @@ interface RangeInputProps {
 	onChange?: (value: RangeValue) => void
 }
 
-const EmployeeRange: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
+const Range: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
 	const [min, setMin] = useState(0)
 	const [max, setMax] = useState(0)
 
@@ -26,51 +27,45 @@ const EmployeeRange: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
 		}
 	}
 
-	const onMinChange = (e) => {
-		const newMin = parseInt(e.target.value || 0, 10)
-		if (Number.isNaN(min)) {
-			return
+	const onMinChange = (min: number | undefined) => {
+		if (min) {
+			setMin(min)
+			
+			triggerChange({
+				min
+			})
 		}
-		if (!('min' in value)) {
-			setMin(newMin)
-		}
-
-		triggerChange({
-			min: newMin
-		})
 	}
 
-	const onMaxChange = (e) => {
-		const newMax = parseInt(e.target.value || 0, 10)
-		if (Number.isNaN(max)) {
-			return
+	const onMaxChange = (max: number | undefined) => {
+		if (max) {
+			if (!('max' in value)) {
+				setMax(max)
+			}
+	
+			triggerChange({
+				max
+			})
 		}
-		if (!('max' in value)) {
-			setMax(newMax)
-		}
-
-		triggerChange({
-			max: newMax
-		})
 	}
 
 	return (
-		<span>
-			<Input
+		<>
+			<InputNumber
 				value={value.min || min}
 				onChange={onMinChange}
 				style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
 				placeholder="Min"
 			/>{' '}
 			-{' '}
-			<Input
+			<InputNumber
 				value={value.max || max}
 				onChange={onMaxChange}
 				style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
 				placeholder="Max"
 			/>
-		</span>
+		</>
 	)
 }
 
-export default EmployeeRange
+export default Range
