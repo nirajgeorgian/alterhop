@@ -35,7 +35,7 @@ const Primary = () => {
 					title="company"
 					className={isSelectedMenu('3')}
 					onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/company">
+					<Link to="/companies">
 						<Avatar>C</Avatar>
 					</Link>
 				</Menu.Item>
@@ -52,7 +52,7 @@ const Primary = () => {
 				visible={visible}
 				onCancel={() => setVisible(!visible)}
 				footer={null}>
-					<Company />
+				<Company />
 			</Modal>
 		</Sider>
 	)

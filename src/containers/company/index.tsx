@@ -1,6 +1,7 @@
 import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd'
 
 import Loading from 'components/loading'
+import EmployeeRange from 'components/EmployeeRange'
 import React from 'react'
 import Search from 'antd/lib/input/Search'
 import UploadCompanyPicture from 'containers/company/upload'
@@ -12,29 +13,46 @@ const Company = () => {
 	const [addCompany, { loading, data }] = useMutation(mutationCreateCompany)
 
 	const onSubmit = (values: any) => {
+		console.log(values)
 		addCompany({
 			variables: {
 				input: {
-					createdBy: "123456789",
-					noOfEmployees: {
-						"min": 1,
-						"max": 4
-					},
+					createdBy: '123456789',
 					...values
 				}
 			}
 		})
 	}
 
+	const validateRange = (rule, value) => {
+		if (!(value.min > 0)) {
+			return Promise.reject('Min value must be greater than zero!')
+		}
+		if (!(value.max > 0)) {
+			return Promise.reject('Max values must be greater than zero!')
+		}
+		if (value.min >= value.max) {
+			return Promise.reject('Max value must be greater than Min value')
+		}
+		return Promise.resolve()
+	}
 	return (
-			<Loading loading={loading}>
-		<Row>
+		<Loading loading={loading}>
+			<Row>
 				<Col span={10} className={style.company}>
 					<UploadCompanyPicture />
 					<span>upload your company logo</span>
 				</Col>
 				<Col span={14}>
-					<Form name="company" onFinish={onSubmit}>
+					<Form
+						name="company"
+						onFinish={onSubmit}
+						initialValues={{
+							noOfEmployees: {
+								min: 0,
+								max: 0
+							}
+						}}>
 						<Form.Item name="name">
 							<Input placeholder="Company Name" />
 						</Form.Item>
@@ -49,6 +67,9 @@ const Company = () => {
 								{[]}
 							</Select>
 						</Form.Item>
+						<Form.Item name="noOfEmployees" label="No. of Employees" rules={[{ validator: validateRange }]}>
+							<EmployeeRange />
+						</Form.Item>
 						<Form.Item name="hiringStatus" valuePropName="checked">
 							<Checkbox>Hiring Status</Checkbox>
 						</Form.Item>
@@ -62,8 +83,8 @@ const Company = () => {
 						</Form.Item>
 					</Form>
 				</Col>
-		</Row>
-			</Loading>
+			</Row>
+		</Loading>
 	)
 }
 

@@ -13,7 +13,7 @@ const App = () => (
 			<Row>
 				<Layout hasSider={true}>
 					<Col className={styles.mainMenu} span={6} xs={24} sm={12} md={10} lg={8} xl={6}>
-						<Sider width="100%" className={styles.navigation}>
+						<Sider width="100%" className={styles.navigation} collapsedWidth="0" breakpoint="lg">
 							<Row>
 								<Navigation>
 									<Col span={6}>
