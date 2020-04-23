@@ -1,18 +1,26 @@
-import { CompanyMenu, ProfileMenu, RootMenu } from 'components/navigation/secondary'
+import { CompanyMenu, ProfileMenu, RootMenu } from 'components/navigation'
 import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from 'app/routes/private'
 import Profile from 'app/pages/profile/page'
 import React from 'react'
+import Test from 'app/pages/test/page'
+import style from 'app/app.module.less'
 
-export const ProfileRoutes: React.FC = () =>
-  <Switch>
-    <Route path="/profile/feed" component={Profile} />
-  </Switch>
+export const PrimaryRoutes: React.FC = () =>
+  <div className={style.routes}>
+    <Switch>
+      <Route path="/" exact component={RootMenu} />
+      <PrivateRoute path="/profile" component={ProfileMenu} />
+      <PrivateRoute path="/companies" component={CompanyMenu} />
+    </Switch>
+  </div>
+
 
 export const SecondaryRoutes: React.FC = () =>
-  <>
-    <Route path="/" exact component={RootMenu} />
-    <PrivateRoute path="/profile" component={ProfileMenu} />
-    <PrivateRoute path="/companies" component={CompanyMenu} />
-  </>
+  <div className={style.routes}>
+    <Switch>
+      <Route path="/" exact component={Test} />
+      <Route path="/profile/feed" component={Profile} />
+    </Switch>
+  </div>

@@ -1,12 +1,12 @@
 import { Col, Layout, Row } from 'antd'
-import Navigation, { Primary, Secondary } from 'components/navigation'
+import Navigation, { Primary } from 'components/navigation'
+import { PrimaryRoutes, SecondaryRoutes } from 'app/routes'
 
-import Contexts from './contexts'
+import Contexts from 'app/contexts'
 import Loading from 'components/loading'
-import { ProfileRoutes } from './routes'
 import React from 'react'
-import styles from './app.module.less'
-import { useAuth } from './contexts/auth'
+import styles from 'app/app.module.less'
+import { useAuth } from 'app/contexts/auth'
 
 const { Content, Sider } = Layout
 
@@ -33,14 +33,14 @@ const AppNavigation: React.FC = () => {
     <Sider width="100%" className={styles.navigation} collapsedWidth="0" breakpoint="lg">
       <Row>
         <Navigation>
-          <Col span={6}>
+          <Col span={6} className={styles.menu}>
             <Loading loading={Boolean(isLoading)}>
               <Primary user={user} isAuthenticated={isAuthenticated} />
             </Loading>
           </Col>
           <Col span={18}>
             <Loading loading={Boolean(isLoading)}>
-              <Secondary />
+              <PrimaryRoutes />
             </Loading>
           </Col>
         </Navigation>
@@ -53,14 +53,20 @@ const AppNavigation: React.FC = () => {
 /**
  * AppBody
  */
-const AppBody: React.FC = () =>
-  <Layout hasSider={false}>
-    <Content>
-      <Loading loading={true} message="loading ...">
-        <ProfileRoutes />
-      </Loading>
-    </Content>
-  </Layout>
+const AppBody: React.FC = () => {
+  const { isLoading } = useAuth();
+
+  return (
+    <Layout hasSider={false}>
+      <Content>
+        <Loading loading={Boolean(isLoading)} message="loading ...">
+          <SecondaryRoutes />
+        </Loading>
+      </Content>
+    </Layout>
+
+  )
+}
 
 
 /**

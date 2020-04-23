@@ -1,12 +1,9 @@
-import { Layout, Menu } from 'antd'
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
 
 import { Link } from 'react-router-dom'
+import { Menu } from 'antd'
 import React from 'react'
-import { SecondaryRoutes } from 'app/routes'
 import styles from 'components/navigation/style.module.less'
-
-const { Sider } = Layout
 
 export const RootMenu = (props) => (
 	<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} className={styles.secondary}>
@@ -44,11 +41,3 @@ export const CompanyMenu = (props) => (
 		</Menu.Item>
 	</Menu>
 )
-
-const Secondary: React.FC = () => (
-	<Sider trigger={null} width="100%" className={styles.navigation}>
-		<SecondaryRoutes />
-	</Sider>
-)
-
-export default Secondary

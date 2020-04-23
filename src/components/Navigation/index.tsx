@@ -1,7 +1,7 @@
+import { CompanyMenu, ProfileMenu, RootMenu } from 'components/navigation/secondary'
 import React, { createContext, useContext, useMemo, useState } from 'react'
 
 import Primary from 'components/navigation/primary'
-import Secondary from 'components/navigation/secondary'
 import { Switch } from 'react-router-dom'
 
 interface INavigationContext {
@@ -32,5 +32,5 @@ export const useNavigationContext = () => {
 	return context
 }
 
-export { Navigation, Primary, Secondary }
+export { Navigation, Primary, RootMenu, CompanyMenu, ProfileMenu }
 export default Navigation
