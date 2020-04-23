@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from 'components/Logo/Logo.module.less'
+import styles from 'components/logo/logo.module.less'
 
 const Logo: React.FC = (props) => (
 	<div className={styles.logo}/>
