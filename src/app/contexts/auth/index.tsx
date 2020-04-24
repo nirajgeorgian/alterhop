@@ -27,7 +27,6 @@ type AuthUser = Omit<IdToken, '__raw'>
 // create the context
 const Auth0Context = createContext<Partial<IContextValueType>>({})
 const { Consumer, Provider } = Auth0Context
-const useAuth = () => useContext(Auth0Context)
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname)
@@ -114,6 +113,8 @@ const AuthProvider = ({
 
   return <Provider value={configObject}>{children}</Provider>
 }
+
+const useAuth = () => useContext(Auth0Context)
 
 export { AuthProvider, Consumer as AuthConsumer, useAuth }
 export default Auth0Context

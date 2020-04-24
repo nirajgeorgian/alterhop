@@ -5,7 +5,7 @@ import PrivateRoute from 'app/routes/private'
 import Profile from 'app/pages/profile/page'
 import React from 'react'
 import Test from 'app/pages/test/page'
-import style from 'app/app.module.less'
+import style from 'app/style.module.less'
 
 export const PrimaryRoutes: React.FC = () =>
   <div className={style.routes}>
