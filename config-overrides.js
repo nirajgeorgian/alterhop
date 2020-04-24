@@ -1,11 +1,21 @@
-const { override, fixBabelImports, addLessLoader, adjustStyleLoaders } = require('customize-cra')
+const {
+	override,
+	fixBabelImports,
+	addLessLoader,
+	adjustStyleLoaders,
+	disableEsLint,
+	addBundleVisualizer,
+	enableEslintTypescript
+} = require('customize-cra')
 
 module.exports = override(
-	// // disable eslint in webpack
-	// disableEsLint(),
+	// disable eslint in webpack
+	disableEsLint(),
 
-	// // add webpack bundle visualizer if BUNDLE_VISUALIZE flag is enabled
-	// process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer(),
+	// add webpack bundle visualizer if BUNDLE_VISUALIZE flag is enabled
+	process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer(),
+
+	enableEslintTypescript(),
 
 	fixBabelImports('import', {
 		libraryName: 'antd',
@@ -19,18 +29,13 @@ module.exports = override(
 	adjustStyleLoaders(({ use: [, css, , resolve, processor] }) => {
 		delete css.options.localIdentName
 
-		// css.options.sourceMap = true // css-loader
-		// css.options.modules = {
-		// 	localIdentName: '[path][name]__[local]--[hash:base64:5]'
-		// }
-
 		if (resolve) {
-			resolve.options.sourceMap = true // resolve-url-loader
+			resolve.options.sourceMap = true
 		}
 
 		// pre-processor
 		if (processor && processor.loader.includes('less-loader')) {
-			processor.options.sourceMap = true // less-loader
+			processor.options.sourceMap = true
 		}
 	})
 )
