@@ -6,7 +6,6 @@ interface RangeValue {
 	min?: number
 	max?: number
 }
-
 interface RangeInputProps {
 	value?: RangeValue
 	onChange?: (value: RangeValue) => void
@@ -30,7 +29,7 @@ const Range: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
 	const onMinChange = (min: number | undefined) => {
 		if (min) {
 			setMin(min)
-			
+
 			triggerChange({
 				min
 			})
@@ -42,7 +41,7 @@ const Range: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
 			if (!('max' in value)) {
 				setMax(max)
 			}
-	
+
 			triggerChange({
 				max
 			})
