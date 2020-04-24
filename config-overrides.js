@@ -21,9 +21,10 @@ module.exports = override(
 		if (resolve) {
 			resolve.options.sourceMap = true // resolve-url-loader
 		}
+
 		// pre-processor
-		if (processor && processor.loader.includes('sass-loader')) {
-			processor.options.sourceMap = true // sass-loader
+		if (processor && processor.loader.includes('less-loader')) {
+			processor.options.sourceMap = true // less-loader
 		}
 	})
 )
