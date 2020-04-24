@@ -1,6 +1,12 @@
 const { override, fixBabelImports, addLessLoader, adjustStyleLoaders } = require('customize-cra')
 
 module.exports = override(
+	// // disable eslint in webpack
+	// disableEsLint(),
+
+	// // add webpack bundle visualizer if BUNDLE_VISUALIZE flag is enabled
+	// process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer(),
+
 	fixBabelImports('import', {
 		libraryName: 'antd',
 		libraryDirectory: 'es',
