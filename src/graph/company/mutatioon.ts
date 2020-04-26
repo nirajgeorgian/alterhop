@@ -7,3 +7,11 @@ export const mutationCreateCompany = gql`
 		}
 	}
 `
+
+export const mutationCreateJob = gql`
+	mutation CreateJob($input: JobInput!) {
+		CreateJob(input: $input) {
+			id
+		}
+	}
+`

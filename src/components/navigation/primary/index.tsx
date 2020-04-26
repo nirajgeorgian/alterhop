@@ -35,7 +35,7 @@ const Primary: React.FC<any> = ({ user }) => {
 					title="company"
 					className={isSelectedMenu('3')}
 					onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/companies">
+					<Link to="/company">
 						<Avatar>C</Avatar>
 					</Link>
 				</Menu.Item>

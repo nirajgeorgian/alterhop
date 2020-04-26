@@ -13,7 +13,6 @@ const Company = () => {
 	const [addCompany, { loading, data }] = useMutation(mutationCreateCompany)
 
 	const onSubmit = (values: any) => {
-		console.log(values)
 		addCompany({
 			variables: {
 				input: {

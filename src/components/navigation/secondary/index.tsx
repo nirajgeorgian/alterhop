@@ -38,6 +38,11 @@ export const CompanyMenu = (props) => (
 		<Menu.Item key="1" className={styles.hovered}>
 			<UserOutlined />
 			<Link to={`${props.location.pathname}/feeds`}>companies</Link>
+			
+		</Menu.Item>
+		<Menu.Item key="1" className={styles.hovered}>
+			<UserOutlined />
+			<Link to={`${props.location.pathname}/Jobs`}>Jobs</Link>
 		</Menu.Item>
 	</Menu>
 )
