@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const Test: React.FC = () => {
-  return (
-    <div>
-      <p>test page for testings.</p>
-    </div>
-  )
-}
+const Text: React.FC = () =>
+  <div>
+    <p>Test Page ...</p>
+  </div>
 
-export default Test
+
+export default Text
