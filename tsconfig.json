@@ -20,11 +20,15 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": false
   },
-  "include": [
-    "src/**/*",
+  "baseUrl": "./src",
+  "paths": {
+    "app/*": ["app"]
+  },
+    "include": [
+    "app/**/*",
     "typings/**/*",
     "server/**/*"
-  ]
+  ],
 }

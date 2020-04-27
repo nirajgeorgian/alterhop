@@ -4,6 +4,7 @@ const merge = require('webpack-merge')
 const StartServerPlugin = require('start-server-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const tsTransformPaths = require('@zerollup/ts-transform-paths');
 
 const { NODE_ENV } = process.env
 const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production'
@@ -30,12 +31,28 @@ module.exports = merge(
 			rules: [
 				{
 					test: /\.tsx?$/,
-					use: 'ts-loader',
-					exclude: /node_modules/
+					loader: 'ts-loader',
+					exclude: /node_modules/,
+					options: {
+						getCustomTransformers: (program) => {
+						  const transformer = tsTransformPaths(program);
+			   
+						  return {
+							before: [transformer.before], // for updating paths in generated code
+							afterDeclarations: [transformer.afterDeclarations] // for updating paths in declaration files
+						  };
+						}
+					  }
 				},
 				{
 					test: /\.less$/,
-					loader: 'less-loader' // compiles Less to CSS
+					use: [{
+						loader: 'style-loader',
+					  }, {
+						loader: 'css-loader', // translates CSS into CommonJS
+					  }, {
+						loader: 'less-loader', // compiles Less to CSS
+					  }],
 				}
 			]
 		},
