@@ -5,13 +5,14 @@ const StartServerPlugin = require('start-server-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const tsTransformPaths = require('@zerollup/ts-transform-paths');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const { NODE_ENV } = process.env
 const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production'
 const mode = isProduction ? 'production' : 'development'
 const devtool = isProduction ? false : 'inline-source-map'
 const dist = path.resolve(__dirname, '..', '..', 'dist')
-const plugins = [new webpack.NamedModulesPlugin(), new CleanWebpackPlugin({})]
+const plugins = [new webpack.NamedModulesPlugin(), new CleanWebpackPlugin({}), new TsconfigPathsPlugin({ configFile: './tsconfig.json' })]
 const entry = isProduction ? ['webpack/hot/poll?1000', './server/src/index.ts'] : ['./server/src/index.ts']
 
 console.log(`Building for : ${mode} environment`)
