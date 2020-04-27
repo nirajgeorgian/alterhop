@@ -3,7 +3,7 @@ import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/i
 import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
 import React from 'react'
-import styles from 'components/navigation/style.module.less'
+import styles from 'app/navigation/style.module.less'
 
 export const RootMenu = (props) => (
 	<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} className={styles.secondary}>
@@ -38,7 +38,7 @@ export const CompanyMenu = (props) => (
 		<Menu.Item key="1" className={styles.hovered}>
 			<UserOutlined />
 			<Link to={`${props.location.pathname}/feeds`}>companies</Link>
-			
+
 		</Menu.Item>
 		<Menu.Item key="1" className={styles.hovered}>
 			<UserOutlined />

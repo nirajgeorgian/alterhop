@@ -1,10 +1,10 @@
-import { CompanyMenu, ProfileMenu, RootMenu } from 'components/navigation'
+import { CompanyMenu, ProfileMenu, RootMenu } from 'app/navigation'
 import { Route, Switch } from 'react-router-dom'
 
+import Job from 'app/pages/job/page'
 import Payment from 'app/pages/payment/page'
 import PrivateRoute from 'app/routes/private'
 import Profile from 'app/pages/profile/page'
-import Job from 'app/pages/job/page'
 import React from 'react'
 import Test from 'app/pages/test/page'
 import style from 'app/style.module.less'

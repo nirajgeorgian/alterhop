@@ -1,5 +1,5 @@
 import { Col, Layout, Row } from 'antd';
-import Navigation, { Primary } from 'components/navigation';
+import Navigation, { Primary } from 'app/navigation';
 
 import Loading from 'components/loading';
 import { PrimaryRoutes } from './routes';

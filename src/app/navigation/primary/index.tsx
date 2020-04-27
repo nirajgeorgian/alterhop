@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Company from 'containers/company'
 import { Link } from 'react-router-dom'
 import { UserOutlined } from '@ant-design/icons'
-import styles from 'components/navigation/style.module.less'
+import styles from 'app/navigation/style.module.less'
 
 const { Sider } = Layout
 
