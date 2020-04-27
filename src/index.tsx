@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker'
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 
 import { ApolloProvider } from '@apollo/client'
-import App from 'app'
+import App from './app'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router } from 'react-router-dom'

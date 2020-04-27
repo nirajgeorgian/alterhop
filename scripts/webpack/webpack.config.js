@@ -11,9 +11,10 @@ const mode = isProduction ? 'production' : 'development'
 const devtool = isProduction ? false : 'inline-source-map'
 const dist = path.resolve(__dirname, '..', '..', 'dist')
 const plugins = [new webpack.NamedModulesPlugin(), new CleanWebpackPlugin({})]
-const entry = isProduction ? ['webpack/hot/poll?1000', './src/index.ts'] : ['./src/index.ts']
+const entry = isProduction ? ['webpack/hot/poll?1000', './server/src/index.ts'] : ['./server/src/index.ts']
 
 console.log(`Building for : ${mode} environment`)
+const srcPath = (subdir) => path.join(__dirname, 'src', subdir)
 
 module.exports = merge(
 	{},
@@ -31,11 +32,23 @@ module.exports = merge(
 					test: /\.tsx?$/,
 					use: 'ts-loader',
 					exclude: /node_modules/
+				},
+				{
+					test: /\.less$/,
+					loader: 'less-loader' // compiles Less to CSS
 				}
 			]
 		},
 		resolve: {
-			extensions: ['.tsx', '.ts', '.js']
+			modules: [path.resolve(__dirname, './src'), 'node_modules'],
+			extensions: ['.tsx', '.ts', '.js'],
+			alias: {
+				app: srcPath('app'),
+				components: srcPath('components'),
+				containers: srcPath('containers'),
+				graph: srcPath('graph'),
+				utils: srcPath('utils')
+			}
 		},
 		plugins: isProduction
 			? [...plugins]
