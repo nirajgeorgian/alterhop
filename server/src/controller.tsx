@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 
 import { ApolloProvider } from '@apollo/client'
 import App from '../../src/app';
-// import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Html from './util/html'
 import React from 'react'
 import { StaticRouter as Router } from 'react-router-dom'
@@ -34,8 +34,8 @@ export const baseController = async (req: Request, res: Response) => {
 
   const content = renderToStaticMarkup(app)
   const initialState = client.extract()
-  // const helmet = Helmet.renderStatic()
-  const data = { content, initialState, helmet: {}, assets }
+  const helmet = Helmet.renderStatic()
+  const data = { content, initialState, helmet, assets }
   const html = renderToStaticMarkup(<Html {...data} />)
 
   res.status(200)
