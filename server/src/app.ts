@@ -4,12 +4,7 @@ import { baseController } from './controller'
 import middlewares from './middleware'
 import path from 'path'
 
-const app = express()
-
-const BUILD_PATH = path.resolve(__dirname, '../../build')
-console.log(BUILD_PATH)
-
-export { app }
+const BUILD_PATH = path.resolve(__dirname, 'build')
 
 class App {
 	public app: Application
@@ -17,8 +12,8 @@ class App {
 	constructor() {
 		this.app = express()
 
-		app.use(express.static(BUILD_PATH, { index: false }))
-		app.use(baseController)
+		this.app.use(express.static(BUILD_PATH, {}))
+		this.app.use(baseController)
 
 		console.info('Initialized App')
 	}
@@ -31,7 +26,7 @@ class App {
 		console.log('close server')
 	}
 
-	private applyMiddleware = () => {
+	applyMiddleware = () => {
 		middlewares(this.app)
 	}
 }

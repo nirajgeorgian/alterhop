@@ -2,14 +2,13 @@ import { Layout } from 'antd';
 import Loading from 'components/loading';
 import React from 'react'
 import { SecondaryRoutes } from 'app/routes';
-import { useAuth } from 'app/contexts/auth';
 
 const { Content } = Layout
 /**
  * AppBody
  */
 const AppBody: React.FC = () => {
-  const { isLoading } = useAuth();
+  const { isLoading } = { isLoading: false }
 
   return (
     <Layout hasSider={false}>

@@ -1,34 +1,23 @@
 {
-  "compilerOptions": {
-    "module": "esnext",
-    "target": "es6",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false,
-    "outDir": "dist",
-    "moduleResolution": "node",
-    "baseUrl": "src",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": false
-  },
-  "baseUrl": "./src",
-  "paths": {
-    "app/*": ["app"]
-  },
-    "include": [
-    "app/**/*",
-    "typings/**/*",
-    "server/**/*"
-  ],
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "es6",
+		"jsx": "react",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitAny": false,
+		"outDir": "dist",
+		"moduleResolution": "node",
+		"baseUrl": "src",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true
+	},
+	"baseUrl": "src",
+	"include": ["src/**/*", "typings/**/*", "server/**/*"]
 }

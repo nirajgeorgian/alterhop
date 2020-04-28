@@ -1,10 +1,12 @@
 import Loading from 'components/loading';
 import React from 'react'
-import { useAuth } from 'app/contexts/auth';
 import { withRouter } from 'react-router-dom';
 
 const ProfileBase: React.FC = () => {
-  const { user, isLoading } = useAuth()
+  const { user, isLoading } = {
+    user: { picture: "http://dummy.duck", email: "dodo@duck", name: "dummy user" },
+    isLoading: false
+  }
 
   return (
     <Loading loading={isLoading || !user}>
@@ -12,7 +14,7 @@ const ProfileBase: React.FC = () => {
       <h2>{user.name}</h2>
       <p>{user.email}</p>
       <code>{JSON.stringify(user, null, 2)}</code>
-      </Loading>
+    </Loading>
   )
 }
 

@@ -2,10 +2,9 @@ import { Col, Layout, Row } from 'antd';
 import Navigation, { Primary } from 'app/navigation';
 
 import Loading from 'components/loading';
-import { PrimaryRoutes } from './routes';
+import { PrimaryRoutes } from 'app/routes';
 import React from 'react'
 import styles from 'app/style.module.less'
-import { useAuth } from './contexts/auth';
 
 const { Sider } = Layout
 
@@ -13,13 +12,16 @@ const { Sider } = Layout
  * AuthenticatedAppNavigation
  */
 const AuthenticatedAppNavigation: React.FC = () => {
-  const { user } = useAuth();
+  const { user } = {
+    user: { picture: "http://dummy.duck", email: "dodo@duck", name: "dummy user" },
+  }
   return (
     <Sider width="100%" className={styles.navigation} collapsedWidth="0" breakpoint="lg">
       <Row>
         <Navigation>
           <Col span={6} className={styles.menu}>
-            <Primary user={user} isAuthenticated={true} />
+            <Primary user={user} isAuthenticated={false} />
+            <div>dodo duck</div>
           </Col>
           <Col span={18}>
             <PrimaryRoutes />
@@ -56,7 +58,7 @@ const UnauthenticatedAppNavigation: React.FC<{ loading: boolean }> = ({ loading 
  * AppNavigation
  */
 const AppNavigation: React.FC = () => {
-  const { isLoading } = useAuth()
+  const { isLoading } = { isLoading: false }
 
   if (isLoading) {
     return <UnauthenticatedAppNavigation loading={Boolean(isLoading)} />

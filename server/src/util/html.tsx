@@ -9,8 +9,8 @@ const Html = ({ content, helmet, assets, initialState }: any) => {
 				<meta name="theme-color" content="#000000" />
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="shortcut icon" href="/favicon.ico" />
-				{helmet.meta.toComponent()}
-				{helmet.title.toComponent()}
+				{/* {helmet.meta.toComponent()}
+				{helmet.title.toComponent()} */}
 				{assets.css && assets.css.map((c: string, idx: number) => <link key={idx} href={c} rel="stylesheet" />)}
 			</head>
 
@@ -19,7 +19,7 @@ const Html = ({ content, helmet, assets, initialState }: any) => {
 				<div id="root" dangerouslySetInnerHTML={{ __html: content }} />
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `window.__APOLLO_STATE__=${JSON.stringify(initialState).replace(/</g, '\\u003c')};`
+						__html: `window.__APOLLO_STATE__=${JSON.stringify(initialState).replace(/</g, '\\u003c')}`
 					}}
 				/>
 				{assets.js && assets.js.map((j: string, idx: number) => <script key={idx} src={j} />)}

@@ -4,19 +4,18 @@ const merge = require('webpack-merge')
 const StartServerPlugin = require('start-server-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const tsTransformPaths = require('@zerollup/ts-transform-paths');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const { NODE_ENV } = process.env
 const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production'
 const mode = isProduction ? 'production' : 'development'
 const devtool = isProduction ? false : 'inline-source-map'
 const dist = path.resolve(__dirname, '..', '..', 'dist')
-const plugins = [new webpack.NamedModulesPlugin(), new CleanWebpackPlugin({}), new TsconfigPathsPlugin({ configFile: './tsconfig.json' })]
-const entry = isProduction ? ['webpack/hot/poll?1000', './server/src/index.ts'] : ['./server/src/index.ts']
+const plugins = [new webpack.NamedModulesPlugin(), new CleanWebpackPlugin({})]
 
-console.log(`Building for : ${mode} environment`)
-const srcPath = (subdir) => path.join(__dirname, 'src', subdir)
+console.log(`Building for NODE_ENV : ${mode} `)
+const entry = isProduction ? ['webpack/hot/poll?1000', './server/index.ts'] : ['./server/index.ts']
+const configFile = path.join(__dirname, '..', '..', 'tsconfig.server.json')
 
 module.exports = merge(
 	{},
@@ -35,46 +34,39 @@ module.exports = merge(
 					loader: 'ts-loader',
 					exclude: /node_modules/,
 					options: {
-						getCustomTransformers: (program) => {
-						  const transformer = tsTransformPaths(program);
-			   
-						  return {
-							before: [transformer.before], // for updating paths in generated code
-							afterDeclarations: [transformer.afterDeclarations] // for updating paths in declaration files
-						  };
-						}
-					  }
+						configFile
+					}
 				},
 				{
 					test: /\.less$/,
-					use: [{
-						loader: 'style-loader',
-					  }, {
-						loader: 'css-loader', // translates CSS into CommonJS
-					  }, {
-						loader: 'less-loader', // compiles Less to CSS
-					  }],
+					use: [
+						{
+							loader: 'isomorphic-style-loader'
+						},
+						{
+							loader: 'css-loader'
+						},
+						{
+							loader: 'less-loader'
+						}
+					]
 				}
 			]
 		},
 		resolve: {
-			modules: [path.resolve(__dirname, './src'), 'node_modules'],
 			extensions: ['.tsx', '.ts', '.js'],
-			alias: {
-				app: srcPath('app'),
-				components: srcPath('components'),
-				containers: srcPath('containers'),
-				graph: srcPath('graph'),
-				utils: srcPath('utils')
-			}
+			plugins: [
+				new TsconfigPathsPlugin({
+					configFile
+				})
+			]
 		},
 		plugins: isProduction
 			? [...plugins]
 			: [
 					...plugins,
 					new StartServerPlugin({
-						name: 'server.js',
-						nodeArgs: ['--inspect']
+						name: 'server.js'
 					}),
 					new webpack.HotModuleReplacementPlugin(),
 					new webpack.NoEmitOnErrorsPlugin()

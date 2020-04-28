@@ -1,22 +1,23 @@
-import React, {useState} from 'react'
-import { Form, Input, Select, Checkbox, Button, Row, Col, Upload } from 'antd'
-import { UploadOutlined } from '@ant-design/icons';
-import SalaryInput from 'components/SalaryInput'
-import Range from 'components/range'
+import { Button, Checkbox, Col, Form, Input, Row, Select, Upload } from 'antd'
+import React, { useState } from 'react'
 
-const {Option} = Select
-const {Search} = Input
+import Range from 'components/range'
+import SalaryInput from 'components/SalaryInput'
+import { UploadOutlined } from '@ant-design/icons';
+
+const { Option } = Select
+const { Search } = Input
 
 interface FormProps {
 	onSubmit: (values: any) => void
 }
-		
-		
+
+
 const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 
 	const checkSalary = (rule, salary) => {
 		if (salary.value > 0) {
-		return Promise.resolve();
+			return Promise.resolve();
 		}
 		return Promise.reject('Price must be greater than zero!');
 	};
@@ -34,7 +35,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 		return Promise.resolve()
 	}
 
-	return(
+	return (
 		<Form
 			name="job"
 			onFinish={onSubmit}
@@ -44,8 +45,8 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 					currency: 'INR',
 				},
 				sallary: {
-					max:0,
-					min:0
+					max: 0,
+					min: 0
 				},
 				status: 'ACTIVE',
 				type: 'DEFAULT'
@@ -54,7 +55,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 			<Form.Item name="name" >
 				<Input placeholder="Job Name" />
 			</Form.Item>
-				<Form.Item name="desc">
+			<Form.Item name="desc">
 				<Input.TextArea rows={4} placeholder="Enter Description" />
 			</Form.Item>
 			<Form.Item name="category">
@@ -74,7 +75,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 					</Form.Item>
 				</Col>
 				<Col span={11} offset={2}>
-					<Form.Item name="type" label="Job Type" style={{ padding: '0 2px'}}>
+					<Form.Item name="type" label="Job Type" style={{ padding: '0 2px' }}>
 						<Select style={{ width: '100%' }}>
 							<Option value="DEFAULT">Default</Option>
 							<Option value="FEATURED">Featured</Option>
@@ -101,14 +102,14 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 				</Col>
 			</Row>
 			<Form.Item name="location">
-				<Search placeholder="company Location. ex: Bangalore" loading/>
+				<Search placeholder="company Location. ex: Bangalore" loading />
 			</Form.Item>
 			<Form.Item name="attachment" label="Attachments">
 				<Upload>
 					<Button>
-					<UploadOutlined /> Click to Upload
+						<UploadOutlined /> Click to Upload
 					</Button>
-				</Upload>			
+				</Upload>
 			</Form.Item>
 
 			<Form.Item>

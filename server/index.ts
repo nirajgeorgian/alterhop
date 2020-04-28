@@ -1,10 +1,10 @@
 import 'dotenv/config'
 
-import App, { application } from './app'
+import App, { application } from './src/app'
 import { Server, createServer } from 'http'
 
 import { Application } from 'express'
-import { normalizePort } from './util/normalize'
+import { normalizePort } from './src/util/normalize'
 
 class OoJob {
 	public app: Application
@@ -19,9 +19,10 @@ class OoJob {
 
 	startSyncServer = async (port: string) => {
 		try {
+			application.applyMiddleware()
 			const PORT = normalizePort(port)
 			this.server.listen(PORT, () => {
-				console.info(`running on port: ${port}`)
+				console.info(`running on port: http://localhost:${port}`)
 			})
 		} catch (error) {
 			console.error(new Error('Error Starting OoJob Server ...'))
