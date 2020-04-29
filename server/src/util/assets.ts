@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const BUILD_PATH = path.resolve(__dirname, '../build')
+const BUILD_PATH = path.resolve(__dirname, '..', 'build')
 const indexHtml = fs.readFileSync(`${BUILD_PATH}/index.html`, {
 	encoding: 'utf-8'
 })
