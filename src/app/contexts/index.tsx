@@ -1,11 +1,14 @@
 import React from 'react'
+import { ResponsiveProvider } from 'app/contexts/responsive'
 import { withRouter } from 'react-router-dom'
 
 const ContextsBase: React.FC = ({ children }) => {
 
   return (
     <>
-      {children}
+      <ResponsiveProvider>
+        {children}
+      </ResponsiveProvider>
     </>
   )
 }

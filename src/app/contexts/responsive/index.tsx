@@ -29,10 +29,13 @@ const extractWidthAndHeight = () => {
 
 // Extra small devices (portrait phones, less than 576px)
 const EXTRA_SMALL_DEVICE = 575.98
+
 // Small devices (landscape phones, 576px and up)
 const SMALL_DEVICE = 767.98
+
 // Medium devices (tablets, 768px and up)
 const MEDIUM_DEVICE = 991.98
+
 // Large devices (desktops, 992px and up)
 // Extra large devices (large desktops, 1200px and up)
 const LARGE_DEVICE = 1199.88
@@ -41,8 +44,8 @@ const LARGE_DEVICE = 1199.88
 const ResponsiveContext = createContext<Partial<IResponsive>>({
 	isMobile: false,
 	dimensions: {
-		height: 0,
-		width: 0
+		height: null as unknown as number,
+		width: null as unknown as number
 	}
 })
 const { Consumer, Provider } = ResponsiveContext
@@ -52,10 +55,8 @@ const ResponsiveBase: React.FC = ({ children }) => {
 	const [isTablet, setIsTablet] = useState(false)
 	const [isDesktop, setIsDesktop] = useState(false)
 	const [isLargeDesktop, setIsLargeDesktop] = useState(false)
-	const [dimensions, setDimensions] = useState({
-		height: 0,
-		width: 0
-	})
+	const [width, setWidth] = useState<number>(null as unknown as number)
+	const [height, setHeight] = useState<number>(null as unknown as number)
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
@@ -63,10 +64,8 @@ const ResponsiveBase: React.FC = ({ children }) => {
 				const values = extractWidthAndHeight()
 				if (values) {
 					const { width, height } = values
-					setDimensions({
-						width,
-						height
-					})
+					setWidth(width)
+					setHeight(height)
 
 					if (width <= EXTRA_SMALL_DEVICE) {
 						setIsMobile(true)
@@ -80,15 +79,18 @@ const ResponsiveBase: React.FC = ({ children }) => {
 						setIsLargeDesktop(true)
 					}
 				}
-
 			}
 
-			window.addEventListener("resize", handleResize)
+			window && window.addEventListener("resize", handleResize)
 			return () => window.removeEventListener('resize', handleResize)
 		}
 	}, [])
 
-	return <Provider value={{ dimensions, isMobile, isTablet, isDesktop, isLargeDesktop }}>{children}</Provider>
+	console.log("browser width: ", width)
+	console.log("browser height: ", height
+	)
+
+	return <Provider value={{ dimensions: { width, height }, isMobile, isTablet, isDesktop, isLargeDesktop }}>{children}</Provider>
 }
 
 export { ResponsiveBase as ResponsiveProvider, Consumer as ResponsiveConsumer }
