@@ -11,7 +11,11 @@ class App {
 	constructor() {
 		this.app = express()
 
-		this.app.use(express.static(BUILD_PATH))
+		this.app.use(
+			express.static(BUILD_PATH, {
+				maxAge: '30d'
+			})
+		)
 		this.app.use(baseController)
 
 		console.info('Initialized App')

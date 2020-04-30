@@ -1,0 +1,35 @@
+@import '../../_variable.less';
+
+.message-card {
+	padding: 0.5rem;
+	cursor: pointer;
+
+	.card {
+		&:hover,
+		&:focus {
+			background: #e6f7ff;
+		}
+	}
+
+	.active {
+		background: #e6f7ff;
+		border-bottom: 2.5px solid #91d5ff;
+	}
+
+	.primary {
+		padding: 1rem;
+	}
+
+	.avatar {
+		padding: 0 0.5rem;
+	}
+
+	.profile {
+		display: flex;
+		justify-content: space-between;
+
+		.title {
+			font-size: 14px;
+		}
+	}
+}
