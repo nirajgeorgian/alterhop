@@ -2,6 +2,7 @@ import { Button, Col, Layout, Modal, Row, Typography } from 'antd'
 import React, { useState } from 'react'
 
 import JobForm from '../../form/job/form'
+import JobList from './list'
 // import style from 'style.module.less'
 import { PlusCircleOutlined } from '@ant-design/icons'
 import { mutationCreateJob } from 'graph/company/mutatioon'
@@ -45,6 +46,7 @@ const JobPage: React.FC = () => {
 						</Button>
 					</Col>
 				</Row>
+				<JobList/>
 				<hr />
 			</Content>
 			<Modal
