@@ -1,11 +1,15 @@
-import React from 'react';
-import { Row, Col, Avatar, Card, Typography, Tag } from 'antd'
-const { Text } = Typography;
+import { Avatar, Card, Col, Row, Tag, Typography } from 'antd'
+
 import {
     HeartFilled
 } from '@ant-design/icons';
+import React from 'react';
+import styles from './style.module.less'
 
-// import styles from './style.module.less'
+const { Text } = Typography;
+console.log(styles)
+
+
 
 interface IJob {
     identifier: Number
@@ -38,12 +42,7 @@ const jobTags = {
 
 const Job: React.FC<any> = ({ item, active }) => {
     return (
-        <Card style={{
-            width: "100%",
-            borderRadius: "16px",
-            background: "#feffff",
-            boxShadow: "10px 10px 30px #d8d9d9, -20px -20px 60px #ffffff"
-        }}>
+        <Card className={styles['list-item']} >
             <div className="left-active" hidden={!active} style={{
                 display: "flex",
                 position: "absolute",
@@ -89,7 +88,7 @@ const Job: React.FC<any> = ({ item, active }) => {
                             alt="logo"
                             src={item.hiringOrganization.logo}
                         />
-                        <Tag color="green" style={{...jobTags, marginTop:"16px", marginLeft:"0px"}}>94/100</Tag>
+                        <Tag color="green" style={{ ...jobTags, marginTop: "16px", marginLeft: "0px" }}>94/100</Tag>
                     </div>
                 </Col>
 
@@ -98,8 +97,8 @@ const Job: React.FC<any> = ({ item, active }) => {
                         <span style={{ fontSize: "18px" }}>
                             {item.hiringOrganization.name}
                         </span>
-                        <Row style={{alignItems:"center"}}>
-                            <Tag icon={<HeartFilled />} style={{...jobTags, marginLeft: "8px",}} color="processing">
+                        <Row style={{ alignItems: "center" }}>
+                            <Tag icon={<HeartFilled />} style={{ ...jobTags, marginLeft: "8px", }} color="processing">
                                 New
                         </Tag>
                         </Row>
@@ -109,7 +108,7 @@ const Job: React.FC<any> = ({ item, active }) => {
                     </Row>
                     <Row>
                         <Col span={14}>
-                            <Text type="secondary" style={{fontSize:"14px", marginTop:"8px"}}> {item.jobLocation.address.addressRegion + item.jobLocation.address.addressLocality}</Text>
+                            <Text type="secondary" style={{ fontSize: "14px", marginTop: "8px" }}> {item.jobLocation.address.addressRegion + item.jobLocation.address.addressLocality}</Text>
                         </Col>
                         <Col span={6} offset={3}>
                             90-100K <Text type="secondary">USD</Text>

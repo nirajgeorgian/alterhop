@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 
 import style from 'components/layout/side-container/style.module.less'
 
-const { Sider, Header, Content } = Layout
+const { Sider, Content } = Layout
 interface ISideContainerProps {
   side: ReactNode
 }
