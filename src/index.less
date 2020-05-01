@@ -1,10 +1,12 @@
 @import '~antd/es/style/themes/default.less';
 
-html {
+html,
+body {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 20;
+	height: 100%;
 }
 
 #react-content {
@@ -17,6 +19,15 @@ html {
  */
 .ant-menu-item-selected {
 	background-color: transparent !important;
+}
+
+/*
+ * used in sider where we need full height
+ */
+.ant-layout-sider-children {
+	height: 100vh !important;
+	display: flex;
+	flex-direction: column;
 }
 
 .ant-upload.ant-upload-select-picture-card {

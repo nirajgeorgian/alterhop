@@ -1,4 +1,4 @@
-@import '../../_variable.less';
+@import '../../_common';
 
 .message-card {
 	padding: 0.5rem;
@@ -7,13 +7,13 @@
 	.card {
 		&:hover,
 		&:focus {
-			background: #e6f7ff;
+			background: @blue1;
 		}
 	}
 
 	.active {
-		background: #e6f7ff;
-		border-bottom: 2.5px solid #91d5ff;
+		background: @blue1;
+		border-bottom: 2.5px solid @blue1;
 	}
 
 	.primary {
