@@ -111,6 +111,7 @@ class JobList extends React.Component {
                         dataSource={this.state.listData}
                         renderItem={item => (
                             <List.Item
+                                style={{ padding: "4px 0" }}
                                 key={item.title}>
                                 <Job item={item} />
                             </List.Item>

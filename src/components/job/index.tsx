@@ -30,7 +30,12 @@ interface ISalary {
 
 const Job: React.FC<any> = ({ item }) => {
     return (
-        <Card style={{ width: "100%" }}>
+        <Card style={{
+            width: "100%",
+            borderRadius: "16px",
+            background: "#feffff",
+            boxShadow: "20px 20px 60px #d8d9d9, -20px -20px 60px #ffffff"
+        }}>
             <Row>
                 <Col span={5} >
                     <div style={{
@@ -51,7 +56,7 @@ const Job: React.FC<any> = ({ item }) => {
                 <Col span={18} offset={1}>
                     <Row>
                         {item.hiringOrganization.name}
-                        <Tag icon={<HeartFilled />} color="processing" style={{marginLeft:"8px"}}>
+                        <Tag icon={<HeartFilled />} color="processing" style={{ marginLeft: "8px" }}>
                             New
                         </Tag>
                     </Row>
@@ -80,7 +85,7 @@ const Job: React.FC<any> = ({ item }) => {
                     </Row>
                 </Col>
             </Row>
-        </Card>
+        </Card >
     );
 }
 
