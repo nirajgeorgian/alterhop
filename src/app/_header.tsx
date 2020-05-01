@@ -21,7 +21,6 @@ const AuthenticatedAppNavigation: React.FC = () => {
         <Navigation>
           <Col span={6} className={styles.menu}>
             <Primary user={user} isAuthenticated={false} />
-            <div>dodo duck</div>
           </Col>
           <Col span={18}>
             <PrimaryRoutes />

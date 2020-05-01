@@ -38,14 +38,14 @@ const JobPage: React.FC = () => {
 					minHeight: 280,
 				}}
 			>
-				<Row>
-					<Col span={8}><Title level={3}>JOBS</Title></Col>
-					<Col span={8} offset={8} >
-						<Button type="primary" shape="round" icon={<PlusCircleOutlined />} size="large" onClick={() => setVisible(!visible)}>
-							Add A Job
-						</Button>
-					</Col>
-				</Row>
+				<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", margin: "20px 0"}}>
+					<Title level={3}>JOBS</Title>
+					
+					<Button type="primary" icon={<PlusCircleOutlined />} size="large" onClick={() => setVisible(!visible)}>
+						Add A Job
+					</Button>
+					
+				</div>
 				<JobList/>
 				<hr />
 			</Content>
