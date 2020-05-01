@@ -1,138 +1,114 @@
-import React from 'react';
-import { Spin } from 'antd';
+/*
+ * Created on Sun April 30 2020
+ *
+ * @className JobComponent .
+ * This file represents the /company/job Route List.
+ *
+ * @author naseemali925@gmail.com (Naseem Ali)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
+import React, { useState } from 'react'
+import { Spin } from 'antd'
 import Job from '../../../components/job'
-import { List } from 'antd';
-import InfiniteScroll from 'react-infinite-scroller';
+import PadColContainer from 'components/layout/pad-col-container'
+import styles from './style.module.less'
 
 // Dummy Data
 const job = {
-    "@context": "https://schema.org/",
-    "@type": "JobPosting",
-    "title": "Software Engineer",
-    "description": "<p>Google aspires to be an organization that reflects the globally diverse audience that our products and technology serve. We believe that in addition to hiring the best talent, a diversity of perspectives, ideas and cultures leads to the creation of better products and services.</p>",
-    "identifier": {
-        "@type": "PropertyValue",
-        "name": "Google",
-        "value": "1234567"
-    },
-    "datePosted": "2017-01-18",
-    "validThrough": "2017-03-18T00:00",
-    "employmentType": "CONTRACTOR",
-    "hiringOrganization": {
-        "@type": "Organization",
-        "name": "Google",
-        "sameAs": "http://www.google.com",
-        "logo": "https://naseem.js.org/static/projects/oyebooks.webp"
-    },
-    "jobLocation": {
-        "@type": "Place",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1600 Amphitheatre Pkwy",
-            "addressLocality": ", Mountain View",
-            "addressRegion": "CA",
-            "postalCode": "94043",
-            "addressCountry": "US"
-        }
-    },
-    "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "USD",
-        "value": {
-            "@type": "QuantitativeValue",
-            "value": 40.00,
-            "unitText": "HOUR"
-        }
-    }
-};
+	'@context': 'https://schema.org/',
+	'@type': 'JobPosting',
+	title: 'Software Engineer',
+	description:
+		'<p>Google aspires to be an organization that reflects the globally diverse audience that our products and technology serve. We believe that in addition to hiring the best talent, a diversity of perspectives, ideas and cultures leads to the creation of better products and services.</p>',
+	identifier: {
+		'@type': 'PropertyValue',
+		name: 'Google',
+		value: '1234567'
+	},
+	datePosted: '2017-01-18',
+	validThrough: '2017-03-18T00:00',
+	employmentType: 'CONTRACTOR',
+	hiringOrganization: {
+		'@type': 'Organization',
+		name: 'Google',
+		sameAs: 'http://www.google.com',
+		logo: 'https://naseem.js.org/static/projects/oyebooks.webp'
+	},
+	jobLocation: {
+		'@type': 'Place',
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: '1600 Amphitheatre Pkwy',
+			addressLocality: ', Mountain View',
+			addressRegion: 'CA',
+			postalCode: '94043',
+			addressCountry: 'US'
+		}
+	},
+	baseSalary: {
+		'@type': 'MonetaryAmount',
+		currency: 'USD',
+		value: {
+			'@type': 'QuantitativeValue',
+			value: 40.0,
+			unitText: 'HOUR'
+		}
+	}
+}
 
-const listData = [job];
+const listData = [job]
 
 for (let i = 1; i < 25; i++) {
-    listData.push(job);
+	listData.push(job)
 }
 
-class JobList extends React.Component {
+const JobComponent: React.FC = () => {
+	const [data, setListData] = useState(listData)
+	const [loading, setLoading] = useState(false)
+	const [hasMore, setHasMore] = useState(true)
+	const [active, setActive] = useState(0)
 
-    state = {
-        listData: listData,
-        loading: false,
-        hasMore: true,
-        active: 0,
-    };
+	const handleInfiniteOnLoad = () => {
+		setLoading(true)
 
-    handleInfiniteOnLoad = () => {
-        let { listData } = this.state;
-        this.setState({
-            loading: true,
-        });
+		// To check if all items are loaded
+		// if (data.length >= 23) {
+		//     message.warning('Infinite List loaded all');
+		// setLoading(false);
+		// setHasMore(false);
+		//     return;
+		// }
 
-        // To check if all items are loaded
-        // if (listData.length >= 23) {
-        //     message.warning('Infinite List loaded all');
-        //     this.setState({
-        //         hasMore: false,
-        //         loading: false,
-        //     });
-        //     return;
-        // }
+		// Do Data Fetching then setLoading false
+		setLoading(false)
+		setHasMore(false)
+	}
 
-        // Do Data Fetching then setLoading false
-        this.setState({
-            loading: false,
-            hasMore: false
-        })
-    };
+	const handleListItemClick = (key) => {
+		setActive(key)
+	}
 
-    handleListItemClick = (key) => {
-        this.setState({
-            active: key
-        })
-    }
+	const JobList = () => {
+		return (
+			<div className={styles['job-list']}>
+				{data.map((job, key) => {
+					return <Job item={job} active={active === key} />
+				})}
+			</div>
+		)
+	}
 
-    render(): JSX.Element {
-        return (
-            <div style={{
-                overflow: "auto",
-                paddingRight: "24px",
-                height: "600px"
-            }}>
-                <InfiniteScroll
-                    initialLoad={true}
-                    pageStart={0}
-                    loadMore={this.handleInfiniteOnLoad}
-                    hasMore={!this.state.loading && this.state.hasMore}
-                    useWindow={false}
-                >
-                    <List
-                        itemLayout="vertical"
-                        size="default"
-                        dataSource={this.state.listData}
-                        renderItem={(item, key) => (
-                            <List.Item
-                                onClick={() => { this.handleListItemClick(key) }}
-                                defaultChecked
-                                style={{ padding: "4px 0" }}
-                                key={key}>
-                                <Job item={item} active={this.state.active === key} />
-                            </List.Item>
-                        )}
-                    >
-                        {this.state.loading && this.state.hasMore && (
-                            <div className="loading-container" style={{
-                                position: "absolute",
-                                bottom: "40px",
-                                width: "100%",
-                                textAlign: "center",
-                            }}>
-                                <Spin />
-                            </div>
-                        )}
-                    </List>
-                </InfiniteScroll>
-            </div>
-        )
-    }
+	const JobView = () => {
+		return <></>
+	}
+
+	return (
+		<PadColContainer side={<JobList />} sideSpan={10} contentSpan={13} spacing={1}>
+			<JobView />
+		</PadColContainer>
+	)
 }
 
-export default JobList;
+export default JobComponent
