@@ -58,6 +58,7 @@ class JobList extends React.Component {
         listData: listData,
         loading: false,
         hasMore: true,
+        active: 0,
     };
 
     handleInfiniteOnLoad = () => {
@@ -83,17 +84,21 @@ class JobList extends React.Component {
         })
     };
 
+    handleListItemClick = (key) => {
+        this.setState({
+            active: key
+        })
+    }
+
     render(): JSX.Element {
         return (
             <div style={{
-                border: "1px solid #e8e8e8",
-                borderRadius: "4px",
                 overflow: "auto",
-                padding: "8px 24px",
+                paddingRight: "24px",
                 height: "600px"
             }}>
                 <InfiniteScroll
-                    initialLoad={false}
+                    initialLoad={true}
                     pageStart={0}
                     loadMore={this.handleInfiniteOnLoad}
                     hasMore={!this.state.loading && this.state.hasMore}
@@ -102,18 +107,14 @@ class JobList extends React.Component {
                     <List
                         itemLayout="vertical"
                         size="default"
-                        // pagination={{
-                        //     onChange: page => {
-                        //         console.log(page);
-                        //     },
-                        //     pageSize: 5,
-                        // }}
                         dataSource={this.state.listData}
-                        renderItem={item => (
+                        renderItem={(item, key) => (
                             <List.Item
+                                onClick={() => { this.handleListItemClick(key) }}
+                                defaultChecked
                                 style={{ padding: "4px 0" }}
-                                key={item.title}>
-                                <Job item={item} />
+                                key={key}>
+                                <Job item={item} active={this.state.active === key} />
                             </List.Item>
                         )}
                     >
