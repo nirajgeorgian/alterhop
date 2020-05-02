@@ -3,24 +3,23 @@ import React, { useState } from 'react'
 
 import Range from 'components/range'
 import SalaryInput from 'components/SalaryInput'
-import { UploadOutlined } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons'
 
 const { Option } = Select
 const { Search } = Input
 
-interface FormProps {
+interface IFormProps {
 	onSubmit: (values: any) => void
 }
 
-
-const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
-
+const JobForm: React.FC<IFormProps> = ({ onSubmit }) => {
 	const checkSalary = (rule, salary) => {
 		if (salary.value > 0) {
-			return Promise.resolve();
+			return Promise.resolve()
 		}
-		return Promise.reject('Price must be greater than zero!');
-	};
+
+		return Promise.reject('Price must be greater than zero!')
+	}
 
 	const validateRange = (rule, value) => {
 		if (!(value.min > 0)) {
@@ -32,6 +31,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 		if (value.min >= value.max) {
 			return Promise.reject('Max value must be greater than Min value')
 		}
+
 		return Promise.resolve()
 	}
 
@@ -42,7 +42,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 			initialValues={{
 				sallary_max: {
 					value: 0,
-					currency: 'INR',
+					currency: 'INR'
 				},
 				sallary: {
 					max: 0,
@@ -50,9 +50,8 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 				},
 				status: 'ACTIVE',
 				type: 'DEFAULT'
-			}}
-		>
-			<Form.Item name="name" >
+			}}>
+			<Form.Item name="name">
 				<Input placeholder="Job Name" />
 			</Form.Item>
 			<Form.Item name="desc">
@@ -69,7 +68,7 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 				</Select>
 			</Form.Item>
 			<Row>
-				<Col span={11}  >
+				<Col span={11}>
 					<Form.Item name="sallary" label="Salary Range" rules={[{ validator: validateRange }]}>
 						<Range />
 					</Form.Item>
@@ -82,11 +81,10 @@ const JobForm: React.FC<FormProps> = ({ onSubmit }) => {
 							<Option value="PREMIUM">Premium</Option>
 						</Select>
 					</Form.Item>
-
 				</Col>
 			</Row>
 			<Row>
-				<Col span={11}  >
+				<Col span={11}>
 					<Form.Item name="sallary_max" label="Salary" rules={[{ validator: checkSalary }]}>
 						<SalaryInput />
 					</Form.Item>

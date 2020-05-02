@@ -4,15 +4,18 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import { ResultProps } from 'antd/lib/result'
 
-const Error: React.FC<ResultProps> = ({ children }) =>
-  <Result
-    status="404"
-    title="404"
-    subTitle="Sorry, the page you visited does not exist."
-    extra={<Button type="primary"><Link to="/">Back Home</Link></Button>}
-  >
-    {children}
-  </Result>
-
+const Error: React.FC<ResultProps> = ({ children }) => (
+	<Result
+		status="404"
+		title="404"
+		subTitle="Sorry, the page you visited does not exist."
+		extra={
+			<Button type="primary">
+				<Link to="/">Back Home</Link>
+			</Button>
+		}>
+		{children}
+	</Result>
+)
 
 export default Error

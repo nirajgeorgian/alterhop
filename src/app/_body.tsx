@@ -9,27 +9,27 @@
  * Copyright (c) 2020 - oojob
  */
 
-import { Layout } from 'antd';
-import Loading from 'components/loading';
+import { Layout } from 'antd'
+import Loading from 'components/loading'
 import React from 'react'
-import { SecondaryRoutes } from 'app/routes';
+import { SecondaryRoutes } from 'app/routes'
 
 const { Content } = Layout
 /**
  * AppBody
  */
 const AppBody: React.FC = () => {
-  const { isLoading } = { isLoading: false }
+	const { isLoading } = { isLoading: false }
 
-  return (
-    <Layout hasSider={false}>
-      <Content>
-        <Loading loading={Boolean(isLoading)} message="loading ...">
-          <SecondaryRoutes />
-        </Loading>
-      </Content>
-    </Layout>
-  )
+	return (
+		<Layout hasSider={false}>
+			<Content>
+				<Loading loading={Boolean(isLoading)} message="loading ...">
+					<SecondaryRoutes />
+				</Loading>
+			</Content>
+		</Layout>
+	)
 }
 
 export default AppBody

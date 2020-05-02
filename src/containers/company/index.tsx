@@ -33,8 +33,10 @@ const Company = () => {
 		if (value.min >= value.max) {
 			return Promise.reject('Max value must be greater than Min value')
 		}
+
 		return Promise.resolve()
 	}
+
 	return (
 		<Loading loading={loading}>
 			<Row>

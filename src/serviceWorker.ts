@@ -9,6 +9,7 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
+/* eslint-disable */
 
 const isLocalhost = Boolean(
 	window.location.hostname === 'localhost' ||
@@ -23,6 +24,9 @@ type Config = {
 	onUpdate?: (registration: ServiceWorkerRegistration) => void
 }
 
+/**
+ * @param config
+ */
 export function register(config?: Config) {
 	if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
 		// The URL constructor is available in all browsers that support SW.
@@ -57,6 +61,10 @@ export function register(config?: Config) {
 	}
 }
 
+/**
+ * @param swUrl
+ * @param config
+ */
 function registerValidSW(swUrl: string, config?: Config) {
 	navigator.serviceWorker
 		.register(swUrl)
@@ -101,6 +109,10 @@ function registerValidSW(swUrl: string, config?: Config) {
 		})
 }
 
+/**
+ * @param swUrl
+ * @param config
+ */
 function checkValidServiceWorker(swUrl: string, config?: Config) {
 	// Check if the service worker can be found. If it can't reload the page.
 	fetch(swUrl, {
@@ -126,6 +138,9 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
 		})
 }
 
+/**
+ *
+ */
 export function unregister() {
 	if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.ready

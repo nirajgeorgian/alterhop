@@ -26,12 +26,7 @@ const Primary: React.FC<any> = ({ user }) => {
 	return (
 		<Sider trigger={null} width="100%" className={styles.navigation}>
 			<Menu defaultSelectedKeys={['1']} mode="inline" theme="dark" className={`${styles.primary}`}>
-				<Menu.Item
-					key="1"
-					title="oojob"
-					className={isSelectedMenu('1')}
-					onClick={({ key }) => changeSelectedMenu(key)}
-				>
+				<Menu.Item key="1" title="oojob" className={isSelectedMenu('1')} onClick={({ key }) => changeSelectedMenu(key)}>
 					<Link to="/" data-testid="home">
 						<Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
 					</Link>

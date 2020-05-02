@@ -20,25 +20,26 @@ import React from 'react'
 import Test from 'app/pages/test/page'
 import style from 'app/style.module.less'
 
-export const PrimaryRoutes: React.FC = () =>
-  <div className={style.routes}>
-    <Switch>
-      <Route path="/profile" component={ProfileMenu} />
-      <Route path="/company" component={CompanyMenu} />
-      <Route path="/" component={RootMenu} />
-      <Route path="*" component={ErrorPage} />
-    </Switch>
-  </div>
+export const PrimaryRoutes: React.FC = () => (
+	<div className={style.routes}>
+		<Switch>
+			<Route path="/profile" component={ProfileMenu} />
+			<Route path="/company" component={CompanyMenu} />
+			<Route path="/" component={RootMenu} />
+			<Route path="*" component={ErrorPage} />
+		</Switch>
+	</div>
+)
 
-
-export const SecondaryRoutes: React.FC = () =>
-  <div className={style.routes}>
-    <Switch>
-      <Route path="/jobs" exact component={Job} />
-      <Route path="/test" exact component={Test} />
-      <Route path="/profile/messages" exact component={Message} />
-      <Route path="/profile/username" exact component={Profile} />
-      <Route path="/company/jobs" component={Job} />
-      <Route path="/profile/payment" component={Payment} />
-    </Switch>
-  </div>
+export const SecondaryRoutes: React.FC = () => (
+	<div className={style.routes}>
+		<Switch>
+			<Route path="/jobs" exact component={Job} />
+			<Route path="/test" exact component={Test} />
+			<Route path="/profile/messages" exact component={Message} />
+			<Route path="/profile/username" exact component={Profile} />
+			<Route path="/company/jobs" component={Job} />
+			<Route path="/profile/payment" component={Payment} />
+		</Switch>
+	</div>
+)

@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 
 import { InputNumber } from 'antd'
 
-interface RangeValue {
+interface IRangeValue {
 	min?: number
 	max?: number
 }
-interface RangeInputProps {
-	value?: RangeValue
-	onChange?: (value: RangeValue) => void
+interface IRangeInputProps {
+	value?: IRangeValue
+	onChange?: (value: IRangeValue) => void
 }
 
-const Range: React.FC<RangeInputProps> = ({ value = {}, onChange }) => {
+const Range: React.FC<IRangeInputProps> = ({ value = {}, onChange }) => {
 	const [min, setMin] = useState(0)
 	const [max, setMax] = useState(0)
 

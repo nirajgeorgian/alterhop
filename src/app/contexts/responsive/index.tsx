@@ -22,10 +22,6 @@ export interface IResponsive {
 	isLargeDesktop: boolean
 }
 
-/**
- * extractWidthAndHeight
- * utility to extract window width/height
- */
 const extractWidthAndHeight = () => {
 	if (typeof window !== 'undefined') {
 		const { innerWidth, innerHeight } = window
@@ -51,12 +47,11 @@ const MEDIUM_DEVICE = 991.98
 // Extra large devices (large desktops, 1200px and up)
 const LARGE_DEVICE = 1199.88
 
-
 const ResponsiveContext = createContext<Partial<IResponsive>>({
 	isMobile: false,
 	dimensions: {
-		height: null as unknown as number,
-		width: null as unknown as number
+		height: (null as unknown) as number,
+		width: (null as unknown) as number
 	}
 })
 const { Consumer, Provider } = ResponsiveContext
@@ -66,8 +61,8 @@ const ResponsiveBase: React.FC = ({ children }) => {
 	const [isTablet, setIsTablet] = useState(false)
 	const [isDesktop, setIsDesktop] = useState(false)
 	const [isLargeDesktop, setIsLargeDesktop] = useState(false)
-	const [width, setWidth] = useState<number>(null as unknown as number)
-	const [height, setHeight] = useState<number>(null as unknown as number)
+	const [width, setWidth] = useState<number>((null as unknown) as number)
+	const [height, setHeight] = useState<number>((null as unknown) as number)
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
@@ -92,7 +87,8 @@ const ResponsiveBase: React.FC = ({ children }) => {
 				}
 			}
 
-			window && window.addEventListener("resize", handleResize)
+			window && window.addEventListener('resize', handleResize)
+
 			return () => window.removeEventListener('resize', handleResize)
 		}
 	}, [])
@@ -100,7 +96,11 @@ const ResponsiveBase: React.FC = ({ children }) => {
 	// console.log("browser width: ", width)
 	// console.log("browser height: ", height)
 
-	return <Provider value={{ dimensions: { width, height }, isMobile, isTablet, isDesktop, isLargeDesktop }}>{children}</Provider>
+	return (
+		<Provider value={{ dimensions: { width, height }, isMobile, isTablet, isDesktop, isLargeDesktop }}>
+			{children}
+		</Provider>
+	)
 }
 
 export { ResponsiveBase as ResponsiveProvider, Consumer as ResponsiveConsumer }

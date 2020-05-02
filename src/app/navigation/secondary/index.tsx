@@ -8,7 +8,14 @@
  * Copyright (c) 2020 - oojob
  */
 
-import { AppstoreOutlined, BookOutlined, MessageOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
+import {
+	AppstoreOutlined,
+	BookOutlined,
+	MessageOutlined,
+	UploadOutlined,
+	UserOutlined,
+	VideoCameraOutlined
+} from '@ant-design/icons'
 
 import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
@@ -18,7 +25,7 @@ import styles from 'app/navigation/style.module.less'
 export const RootMenu: React.FC = () => (
 	<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} className={styles.secondary}>
 		<Menu.Item key="1" className={styles.hovered}>
-			<Link to='/jobs' data-testid="sec-jobs">
+			<Link to="/jobs" data-testid="sec-jobs">
 				<UserOutlined />
 				<span>Jobs</span>
 			</Link>
@@ -72,7 +79,6 @@ export const CompanyMenu = (props) => (
 		<Menu.Item key="1" className={styles.hovered}>
 			<UserOutlined />
 			<Link to={`${props.location.pathname}/feeds`}>companies</Link>
-
 		</Menu.Item>
 		<Menu.Item key="1" className={styles.hovered}>
 			<UserOutlined />

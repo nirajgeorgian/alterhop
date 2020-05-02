@@ -10,7 +10,7 @@
  */
 
 import React, { useState } from 'react'
-import { Spin } from 'antd'
+
 import Job from '../../../components/job'
 import PadColContainer from 'components/layout/pad-col-container'
 import styles from './style.module.less'
@@ -90,19 +90,15 @@ const JobComponent: React.FC = () => {
 		setActive(key)
 	}
 
-	const JobList = () => {
-		return (
-			<div className={styles['job-list']}>
-				{data.map((job, key) => {
-					return <Job item={job} active={active === key} />
-				})}
-			</div>
-		)
-	}
+	const JobList = () => (
+		<div className={styles['job-list']}>
+			{data.map((job, key) => (
+				<Job key={key} item={job} active={active === key} />
+			))}
+		</div>
+	)
 
-	const JobView = () => {
-		return <></>
-	}
+	const JobView = () => <></>
 
 	return (
 		<PadColContainer side={<JobList />} sideSpan={10} contentSpan={13} spacing={1}>

@@ -14,7 +14,7 @@ hookDir=$(dirname $0)
 
 # Specify the hooks you want to run during
 # the post-commit process:
-"$hookDir/hooks/run-tests.sh"
+"$hookDir/run-tests.sh"
 
 # $? stores exit value of the last command
 if [ $? -ne 0 ]; then

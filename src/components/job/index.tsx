@@ -2,20 +2,19 @@ import { Avatar, Card, Col, Row, Tag, Typography } from 'antd'
 
 import { HeartFilled } from '@ant-design/icons'
 import React from 'react'
-import styles from './style.module.less'
 import moment from 'moment'
+import styles from './style.module.less'
 
 const { Text } = Typography
-console.log(styles)
 
 interface IJob {
-	identifier: Number
-	employment: String
+	identifier: number
+	employment: string
 	salary: ISalary
-	skills: String
-	place: String
+	skills: string
+	place: string
 	metadata: IMetaData
-	name: String
+	name: string
 }
 
 interface IMetaData {
@@ -27,8 +26,8 @@ interface IMetaData {
 }
 
 interface ISalary {
-	max: Number
-	min: Number
+	max: number
+	min: number
 }
 
 const jobTags = {
@@ -40,6 +39,7 @@ const jobTags = {
 const Job: React.FC<any> = ({ item, active }) => {
 	const fromNow = moment(item.datePosted).fromNow()
 	const type = fromNow.includes('hours') ? 'warning' : 'secondary'
+
 	return (
 		<Card className={styles['list-item']}>
 			<div className={styles['left-active']} hidden={!active}>
@@ -86,7 +86,9 @@ const Job: React.FC<any> = ({ item, active }) => {
 							<Tag style={jobTags}>React</Tag>
 							<Tag style={jobTags}>JS</Tag>
 						</Row>
-						<Text type={type} style={{fontSize:"x-small"}}>{fromNow}</Text>
+						<Text type={type} style={{ fontSize: 'x-small' }}>
+							{fromNow}
+						</Text>
 					</Row>
 				</Col>
 			</Row>

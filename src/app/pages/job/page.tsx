@@ -14,9 +14,10 @@ const { Title } = Typography
 
 const JobPage: React.FC = () => {
 	const [visible, setVisible] = useState<boolean>(false)
-	const [addJob, { loading, data }] = useMutation(mutationCreateJob);
+	const [addJob, { loading, data }] = useMutation(mutationCreateJob)
 
 	const onSubmit = (values: any) => {
+		/* eslint-disable no-console */
 		console.log(values)
 		// addJob({
 		// 	variables: {
@@ -35,18 +36,16 @@ const JobPage: React.FC = () => {
 				style={{
 					padding: 24,
 					margin: 0,
-					minHeight: 280,
-				}}
-			>
-				<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", margin: "20px 0"}}>
+					minHeight: 280
+				}}>
+				<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '20px 0' }}>
 					<Title level={3}>JOBS</Title>
-					
+
 					<Button type="primary" icon={<PlusCircleOutlined />} size="large" onClick={() => setVisible(!visible)}>
 						Add A Job
 					</Button>
-					
 				</div>
-				<JobList/>
+				<JobList />
 				<hr />
 			</Content>
 			<Modal
