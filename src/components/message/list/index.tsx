@@ -7,8 +7,8 @@ import style from 'components/message/style.module.less'
 
 const { Text, Title, Paragraph } = Typography;
 
-interface IUserMessageProps {
-  picture: string
+export interface IUserMessageProps {
+  picture?: string
   name: string
   job: string
   time: Moment
@@ -29,26 +29,24 @@ const MessageCard: React.FC<IUserMessageProps> = ({ summary, time, job, name, is
               <Title className={style.title} level={4}>{name}</Title>
             </Col>
             <Col>
-              <small>{moment().fromNow()}</small>
+              <small>{moment(time).fromNow()}</small>
             </Col>
           </Row>
-          <Paragraph>applied for <Text strong>a very long position</Text></Paragraph>
+          <Paragraph>applied for <Text strong>{job}</Text></Paragraph>
         </Col>
       </Row>
       <Paragraph>{summary}</Paragraph>
     </>
 
   return (
-    <div className={style['message-card']}>
-      <Card
-        loading={false}
-        bordered={false}
-        bodyStyle={{ padding: '1rem' }}
-        className={`${style.card} ${isActive ? style.active : ''}`}>
-        <UserTitle />
-      </Card>
-      <hr />
-    </div >
+    <Card
+      data-testid="message-list-card"
+      loading={false}
+      bordered={false}
+      bodyStyle={{ padding: '1rem' }}
+      className={`${style.card} ${isActive ? style.active : ''}`}>
+      <UserTitle />
+    </Card>
   );
 };
 

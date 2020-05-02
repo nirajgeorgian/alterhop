@@ -1,35 +1,33 @@
 @import '../../_common';
 
-.message-card {
+.card {
 	padding: 0.5rem;
 	cursor: pointer;
 
-	.card {
-		&:hover,
-		&:focus {
-			background: @blue1;
-		}
-	}
-
-	.active {
+	&:hover,
+	&:focus {
 		background: @blue1;
-		border-bottom: 2.5px solid @blue1;
 	}
+}
 
-	.primary {
-		padding: 1rem;
-	}
+.active {
+	background: @blue1;
+	border-bottom: 2.5px solid @blue1;
+}
 
-	.avatar {
-		padding: 0 0.5rem;
-	}
+.primary {
+	padding: 1rem;
+}
 
-	.profile {
-		display: flex;
-		justify-content: space-between;
+.avatar {
+	padding: 0 0.5rem;
+}
 
-		.title {
-			font-size: 14px;
-		}
+.profile {
+	display: flex;
+	justify-content: space-between;
+
+	.title {
+		font-size: 14px;
 	}
 }

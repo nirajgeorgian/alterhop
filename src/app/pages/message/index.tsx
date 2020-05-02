@@ -1,7 +1,7 @@
 import { Button, Col, Dropdown, Input, Menu, Row, Tag, Typography } from 'antd';
+import React, { useState } from 'react';
 
 import { CaretDownOutlined } from '@ant-design/icons';
-import React from 'react';
 import SideContainer from 'components/layout/side-container';
 import UserMessage from 'components/message/list';
 import moment from 'moment';
@@ -12,25 +12,34 @@ const { Search } = Input;
 
 
 const Message: React.FC = () => {
-  console.log("message page")
+  const [active, setActive] = useState<string>("1")
+
+  const onSearch = (value: string) => {
+    console.log("search")
+  }
 
   const Side = () => {
     const menu = (
       <Menu>
         <Menu.Item>
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-            1st menu item
-      </a>
+            All Messages
+          </a>
         </Menu.Item>
         <Menu.Item>
           <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            2nd menu item
-      </a>
+            Unread Messages
+          </a>
         </Menu.Item>
         <Menu.Item>
           <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-            3rd menu item
-      </a>
+            Read Messages
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+            Blocked Messages
+          </a>
         </Menu.Item>
       </Menu>
     );
@@ -40,26 +49,30 @@ const Message: React.FC = () => {
         <div className={style.primary}>
           <Row>
             <Col span={12}>
-              <Title level={4}>Messages <Tag><Text>25</Text></Tag></Title>
+              <Title data-testid="message-title" level={4}>Messages <Tag><Text>25</Text></Tag></Title>
             </Col>
             <Col span={12}>
-              <Dropdown overlay={menu} placement="bottomCenter">
+              <Dropdown overlay={menu} placement="bottomCenter" data-testid="message-button">
                 <Button style={{ width: '100%' }}>All Messages <CaretDownOutlined /></Button>
               </Dropdown>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Search placeholder="search for your messages ..." />
+              <Search
+                data-testid="message-search"
+                onSearch={onSearch}
+                placeholder="search for your messages ..."
+              />
             </Col>
           </Row>
         </div>
         <div className={style.secondary}>
-          <Row>
+          <Row data-testid="message-list">
             {new Array(10).fill(0).map((_, key) => (
-              <Col>
+              <Col onClick={() => setActive("" + key)} data-testid={`message-list-item${key}`}>
                 <UserMessage
-                  isActive={key === 1}
+                  isActive={key === parseInt(active)}
                   key={key}
                   picture="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                   name="dodo duck"
@@ -67,6 +80,7 @@ const Message: React.FC = () => {
                   time={moment()}
                   read={false}
                   summary="dodo duck lives here with some data to be read more about. but the message can go long also" />
+                <hr />
               </Col>
             ))}
           </Row>
