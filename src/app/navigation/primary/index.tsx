@@ -16,8 +16,13 @@ const Primary: React.FC<any> = ({ user }) => {
 	return (
 		<Sider trigger={null} width="100%" className={styles.navigation}>
 			<Menu defaultSelectedKeys={['1']} mode="inline" theme="dark" className={`${styles.primary}`}>
-				<Menu.Item key="1" title="oojob" className={isSelectedMenu('1')} onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/">
+				<Menu.Item
+					key="1"
+					title="oojob"
+					className={isSelectedMenu('1')}
+					onClick={({ key }) => changeSelectedMenu(key)}
+				>
+					<Link to="/" data-testid="home">
 						<Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
 					</Link>
 				</Menu.Item>
@@ -26,7 +31,7 @@ const Primary: React.FC<any> = ({ user }) => {
 					title="profile"
 					className={isSelectedMenu('2')}
 					onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/profile">
+					<Link to="/profile" data-testid="profile">
 						<Avatar>P</Avatar>
 					</Link>
 				</Menu.Item>
@@ -35,7 +40,7 @@ const Primary: React.FC<any> = ({ user }) => {
 					title="company"
 					className={isSelectedMenu('3')}
 					onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/company">
+					<Link to="/company" data-testid="company">
 						<Avatar>C</Avatar>
 					</Link>
 				</Menu.Item>

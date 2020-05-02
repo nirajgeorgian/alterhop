@@ -86,9 +86,8 @@ const ResponsiveBase: React.FC = ({ children }) => {
 		}
 	}, [])
 
-	console.log("browser width: ", width)
-	console.log("browser height: ", height
-	)
+	// console.log("browser width: ", width)
+	// console.log("browser height: ", height)
 
 	return <Provider value={{ dimensions: { width, height }, isMobile, isTablet, isDesktop, isLargeDesktop }}>{children}</Provider>
 }

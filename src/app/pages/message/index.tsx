@@ -90,10 +90,10 @@ const Message: React.FC = () => {
   }
 
   const MessageData = () => (
-    <>
+    <div>
       <h2>Your Messages</h2>
       <p>Send private photos and messages to a friend or group.</p>
-    </>
+    </div>
   )
 
   return (

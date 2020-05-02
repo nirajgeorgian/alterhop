@@ -1,6 +1,7 @@
 import { CompanyMenu, ProfileMenu, RootMenu } from 'app/navigation'
 import { Route, Switch } from 'react-router-dom'
 
+import ErrorPage from 'app/pages/error'
 import Job from 'app/pages/job/page'
 import Message from 'app/pages/message'
 import Payment from 'app/pages/payment/page'
@@ -15,6 +16,7 @@ export const PrimaryRoutes: React.FC = () =>
       <Route path="/profile" component={ProfileMenu} />
       <Route path="/company" component={CompanyMenu} />
       <Route path="/" component={RootMenu} />
+      <Route path="*" component={ErrorPage} />
     </Switch>
   </div>
 
@@ -24,7 +26,7 @@ export const SecondaryRoutes: React.FC = () =>
     <Switch>
       <Route path="/jobs" exact component={Job} />
       <Route path="/test" exact component={Test} />
-      <Route path="/profile/message" exact component={Message} />
+      <Route path="/profile/messages" exact component={Message} />
       <Route path="/profile/username" exact component={Profile} />
       <Route path="/company/jobs" component={Job} />
       <Route path="/profile/payment" component={Payment} />
