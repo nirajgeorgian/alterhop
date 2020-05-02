@@ -1,3 +1,13 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * File ccreated for mocking functionality where jest miss out
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 export const matchMediaSpec = {
 	writable: true,
 	value: jest.fn().mockImplementation((query) => ({

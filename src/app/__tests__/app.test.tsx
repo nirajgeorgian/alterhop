@@ -1,3 +1,13 @@
+/*
+ * Created on Sat May 2 2020
+ *
+ * Test case for higher level App component and the routes assocciated with it
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { fireEvent, render } from '@testing-library/react';
 import { render as readerInDOM, unmountComponentAtNode } from 'react-dom'
 

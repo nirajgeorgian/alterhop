@@ -1,3 +1,14 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Base helper component for app composition
+ * App => (Header/Body)
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { Layout } from 'antd';
 import Loading from 'components/loading';
 import React from 'react'

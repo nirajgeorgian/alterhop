@@ -1,3 +1,14 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Main file responsible for navigation and combining them
+ * Navigation => (Primary/Seconday)
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { CompanyMenu, ProfileMenu, RootMenu } from 'app/navigation/secondary'
 import React, { createContext, useContext, useMemo, useState } from 'react'
 

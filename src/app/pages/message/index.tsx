@@ -1,3 +1,14 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Message page main ccontainer
+ * /profile/message
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { Button, Col, Dropdown, Input, Menu, Row, Tag, Typography } from 'antd';
 import React, { useState } from 'react';
 

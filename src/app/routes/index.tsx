@@ -1,3 +1,13 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * App Routes responsible for making routes in entire app
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { CompanyMenu, ProfileMenu, RootMenu } from 'app/navigation'
 import { Route, Switch } from 'react-router-dom'
 

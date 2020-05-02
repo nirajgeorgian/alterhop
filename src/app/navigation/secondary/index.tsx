@@ -1,3 +1,13 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Secondary navigation for application
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { AppstoreOutlined, BookOutlined, MessageOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
 
 import { Link } from 'react-router-dom'

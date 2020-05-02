@@ -1,3 +1,13 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Main file responsible for serving the application
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import 'index.less'
 
 import * as serviceWorker from './serviceWorker'

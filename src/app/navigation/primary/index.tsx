@@ -1,3 +1,13 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Primary navigation for application
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { Avatar, Button, Layout, Menu, Modal } from 'antd'
 import React, { useState } from 'react'
 

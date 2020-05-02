@@ -1,3 +1,14 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Higher level context to make it available which type of device is being used
+ * mobile/tablet/desktop/extra large screen
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import React, { createContext, useEffect, useState } from 'react'
 
 export interface IResponsive {

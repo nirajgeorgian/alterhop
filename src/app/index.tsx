@@ -1,3 +1,14 @@
+/*
+ * Created on Thu April 23 2020
+ *
+ * Main App composition where we combine different component to from an 
+ * base starting point for application rendering
+ *
+ * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ *
+ * Copyright (c) 2020 - oojob
+ */
+
 import { Col, Layout, Row } from 'antd'
 
 import AppBody from 'app/_body'
