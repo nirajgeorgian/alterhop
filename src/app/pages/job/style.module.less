@@ -1,6 +1,25 @@
-.job-list {
-	overflow: auto;
-	padding-right: 8px;
-	overflow-x: hidden;
-	overflow-y: scroll;
+
+.job-content{
+	padding: 24px;
+	min-height: 100%;
+	.header{
+		display: flex; 
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 10px 0;
+		padding: 10px 0;
+		border-bottom: solid 1px black;
+		.title{
+			color: grey;
+		}
+	}
+	.job-list {
+		overflow: auto;
+		padding-right: 8px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		// height: calc(100% - 33px);
+		height: 600px;
+	}
 }
+

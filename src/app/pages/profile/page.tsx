@@ -49,6 +49,7 @@ const ProfileBase: React.FC = () => {
 	const onFinish = (e) => {
 		/* eslint-disable no-console */
 		console.log(e)
+		setDisabled((state) => !state)
 	}
 
 	return (
