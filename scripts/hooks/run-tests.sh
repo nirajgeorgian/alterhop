@@ -17,6 +17,8 @@ set -e
 cd "${0%/*}/.."
 
 # let's fake failing test for now 
-echo "Running tests"
+echo "Running linting ......"
 npm run lint         # JS lint config
+
+echo "Running test ......"
 npm run test         # JS unit tests
