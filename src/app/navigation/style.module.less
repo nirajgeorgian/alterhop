@@ -3,7 +3,6 @@
 	width: 100%;
 	position: 'fixed';
 	left: 0;
-
 	.primary {
 		padding: 0.5px 0;
 		height: 100%;
@@ -18,11 +17,18 @@
 		padding: 0.5rem 1rem;
 		height: 100%;
 		width: 100%;
-
-		.hovered {
-			&:hover {
-				cursor: pointer;
-				background: rgb(47, 69, 102) !important;
+		.menu-link {
+			font-size: 20px !important;
+			.menu-item {
+				&:hover {
+					cursor: pointer;
+					background: rgb(47, 69, 102) !important;
+				}
+				.menu-icon,
+				.menu-name {
+					font-size: 20px !important;
+				}
+	
 			}
 		}
 	}
