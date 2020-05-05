@@ -1,8 +1,8 @@
 /*
  * Created on Thu April 23 2020
  *
- * Message page main ccontainer
- * /profile/message
+ * Message page main container
+ * /profile/messages
  *
  * @author nirajgeorgian@oojob.io (Niraj Georgian)
  *
