@@ -13,6 +13,7 @@ import { Button, Col, Dropdown, Input, Menu, Row, Tag, Typography } from 'antd'
 import React, { useState } from 'react'
 
 import { CaretDownOutlined } from '@ant-design/icons'
+import CreateMessage from 'components/message/create'
 import SideContainer from 'components/layout/side-container'
 import UserMessage from 'components/message/list'
 import moment from 'moment'
@@ -108,6 +109,7 @@ const Message: React.FC = () => {
 		<div>
 			<h2>Your Messages</h2>
 			<p>Send private photos and messages to a friend or group.</p>
+			<CreateMessage />
 		</div>
 	)
 
