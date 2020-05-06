@@ -37,7 +37,7 @@ const MessageEditor: React.FC = (props) => {
 			return 'not-handled'
 		},
 
-		[editorState, setEditorState]
+		[setEditorState]
 	)
 
 	const mapKeyToEditorCommand = useCallback(
