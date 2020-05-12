@@ -1129,7 +1129,7 @@ exports[`message page render's properly 1`] = `
                       >
                         <div
                           class="public-DraftEditorPlaceholder-inner"
-                          id="placeholder-2fs8o"
+                          id="placeholder-umdg"
                           style="white-space: pre-wrap;"
                         >
                           Write Your message...
@@ -1139,7 +1139,7 @@ exports[`message page render's properly 1`] = `
                         class="DraftEditor-editorContainer"
                       >
                         <div
-                          aria-describedby="placeholder-2fs8o"
+                          aria-describedby="placeholder-umdg"
                           class="notranslate public-DraftEditor-content"
                           contenteditable="true"
                           role="textbox"
@@ -1152,15 +1152,15 @@ exports[`message page render's properly 1`] = `
                             <div
                               class=""
                               data-block="true"
-                              data-editor="2fs8o"
-                              data-offset-key="thad-0-0"
+                              data-editor="umdg"
+                              data-offset-key="4i0i5-0-0"
                             >
                               <div
                                 class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                                data-offset-key="thad-0-0"
+                                data-offset-key="4i0i5-0-0"
                               >
                                 <span
-                                  data-offset-key="thad-0-0"
+                                  data-offset-key="4i0i5-0-0"
                                 >
                                   <br
                                     data-text="true"

@@ -15,9 +15,6 @@ import React from 'react'
 import { SecondaryRoutes } from 'app/routes'
 
 const { Content } = Layout
-/**
- * AppBody
- */
 const AppBody: React.FC = () => {
 	const { isLoading } = { isLoading: false }
 

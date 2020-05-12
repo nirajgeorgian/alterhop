@@ -3,9 +3,9 @@
  *
  * Main file responsible for serving the application
  *
- * @author nirajgeorgian@oojob.io (Niraj Georgian)
+ * @author nirajgeorgian@alterhop.com (Niraj Georgian)
  *
- * Copyright (c) 2020 - oojob
+ * Copyright (c) 2020 - alterhop
  */
 
 import 'index.less'

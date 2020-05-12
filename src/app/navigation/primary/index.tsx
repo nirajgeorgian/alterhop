@@ -11,7 +11,6 @@
 import { Avatar, Button, Layout, Menu, Modal } from 'antd'
 import React, { useState } from 'react'
 
-import Company from 'containers/company'
 import { Link } from 'react-router-dom'
 import { UserOutlined } from '@ant-design/icons'
 import styles from 'app/navigation/style.module.less'
@@ -55,15 +54,6 @@ const Primary: React.FC<any> = ({ user }) => {
 					</Button>
 				</Menu.Item>
 			</Menu>
-			<Modal
-				title="create company"
-				width={720}
-				closable={false}
-				visible={visible}
-				onCancel={() => setVisible(!visible)}
-				footer={null}>
-				<Company />
-			</Modal>
 		</Sider>
 	)
 }

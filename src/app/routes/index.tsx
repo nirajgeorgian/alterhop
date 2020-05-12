@@ -12,7 +12,6 @@ import { CompanyMenu, ProfileMenu, RootMenu } from 'app/navigation'
 import { Route, Switch } from 'react-router-dom'
 
 import ErrorPage from 'app/pages/error'
-import Job from 'app/pages/job/page'
 import Message from 'app/pages/message'
 import Payment from 'app/pages/payment/page'
 import Profile from 'app/pages/profile/page'
@@ -24,7 +23,7 @@ export const PrimaryRoutes: React.FC = () => (
 	<div className={style.routes}>
 		<Switch>
 			<Route path="/profile" component={ProfileMenu} />
-			<Route path="/company" component={CompanyMenu} />
+			<Route path="/college" component={CompanyMenu} />
 			<Route path="/" component={RootMenu} />
 			<Route path="*" component={ErrorPage} />
 		</Switch>
@@ -34,11 +33,10 @@ export const PrimaryRoutes: React.FC = () => (
 export const SecondaryRoutes: React.FC = () => (
 	<div className={style.routes}>
 		<Switch>
-			<Route path="/jobs" exact component={Job} />
 			<Route path="/test" exact component={Test} />
 			<Route path="/profile/messages" exact component={Message} />
 			<Route path="/profile/username" exact component={Profile} />
-			<Route path="/company/jobs" component={Job} />
+			<Route path="/colleges/branch" component={Test} />
 			<Route path="/profile/payment" component={Payment} />
 		</Switch>
 	</div>
