@@ -35,7 +35,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node build/server.js",
     "start:dev": "react-app-rewired start --host 0.0.0.0",
     "ssr:start": "export NODE_ENV=development && webpack --colors --progress --config scripts/webpack/webpack.config.js",
     "ssr:build": "NODE_ENV=production webpack --colors --progress --config server/config/webpack.config.js",
@@ -45,7 +45,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
-    "lint:css": "stylelint './src/**/*.less'",
+    "lintcss": "stylelint './src/**/*.less'",
+    "lintcss:fix": "stylelint './src/**/*.less' --fix",
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
     "compile": "lingui compile",
