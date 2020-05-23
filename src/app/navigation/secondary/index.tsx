@@ -10,24 +10,30 @@
 
 import { AppstoreOutlined, BookOutlined, MessageOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
 
+import AvatarCard from 'components/avatar-card'
 import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
 import React from 'react'
 import styles from 'app/navigation/style.module.less'
-import AvatarCard from 'components/avatar-card'
 
 export const RootMenu: React.FC = () => (
 	<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} className={styles.secondary}>
 		<Menu.Item key="1" className={styles['menu-item']}>
-			<Link to="/jobs" data-testid="sec-jobs">
+			<Link to="/colleges" data-testid="sec-jobs">
 				<UserOutlined />
-				<span>Jobs</span>
+				<span>colleges</span>
 			</Link>
 		</Menu.Item>
 		<Menu.Item key="2" className={styles['menu-item']}>
-			<Link to="/companies" data-testid="sec-companies">
+			<Link to="/scholarships" data-testid="sec-companies">
 				<VideoCameraOutlined />
-				<span>Companies</span>
+				<span>scholarships</span>
+			</Link>
+		</Menu.Item>
+		<Menu.Item key="2" className={styles['menu-item']}>
+			<Link to="/peer" data-testid="sec-companies">
+				<VideoCameraOutlined />
+				<span>comparison peer</span>
 			</Link>
 		</Menu.Item>
 	</Menu>
@@ -44,15 +50,15 @@ export const ProfileMenu: React.FC = () => (
 				</Link>
 			</Menu.Item>
 			<Menu.Item key="2" className={styles['menu-item']}>
-				<Link to="/profile/jobs" className={styles['menu-link']} data-testid="sec-jobs">
+				<Link to="/profile/saved-colleges" className={styles['menu-link']} data-testid="sec-jobs">
 					<AppstoreOutlined className={styles['menu-icon']} />
-					<span className={styles['menu-name']}>Jobs</span>
+					<span className={styles['menu-name']}>Saved Colleges</span>
 				</Link>
 			</Menu.Item>
 			<Menu.Item key="3" className={styles['menu-item']}>
-				<Link to="/saved-jobs" className={styles['menu-link']} data-testid="sec-saved-jobs">
+				<Link to="/profile/saved-scholarships" className={styles['menu-link']} data-testid="sec-saved-jobs">
 					<BookOutlined className={styles['menu-icon']} />
-					<span className={styles['menu-name']}>Saved Jobs</span>
+					<span className={styles['menu-name']}>Saved Scholarships</span>
 				</Link>
 			</Menu.Item>
 			<Menu.Item key="4" className={styles['menu-item']}>
@@ -75,11 +81,7 @@ export const CompanyMenu = (props) => (
 	<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} className={styles.secondary}>
 		<Menu.Item key="1" className={styles['menu-item']}>
 			<UserOutlined />
-			<Link to={`${props.location.pathname}/feeds`}>companies</Link>
-		</Menu.Item>
-		<Menu.Item key="1" className={styles['menu-item']}>
-			<UserOutlined />
-			<Link to={`${props.location.pathname}/Jobs`}>Jobs</Link>
+			<Link to={`${props.location.pathname}/feeds`}>colleges</Link>
 		</Menu.Item>
 	</Menu>
 )

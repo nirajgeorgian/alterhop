@@ -1,18 +1,20 @@
-import React, { useState } from "react";
-import Dropdown from "../dropdown/dropdown";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./searchBox.css";
+import './searchBox.css'
+
+import React, { useState } from 'react'
+
+import Dropdown from '../dropdown/dropdown'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 interface Ipvalue {
-  pVal: (getPeer: string) => void;
+  pVal: (getPeer: string) => void
 }
 
 const SearchBox: React.FC<Ipvalue> = ({ pVal }) => {
-  const [currentPeer, selectCurrentPeer] = useState<string>("");
+  const [currentPeer, selectCurrentPeer] = useState<string>('')
   const getSelected = (selectedValue: string) => {
-    selectCurrentPeer(selectedValue);
-  };
+    selectCurrentPeer(selectedValue)
+  }
 
   return (
     <div className="search">
@@ -22,12 +24,12 @@ const SearchBox: React.FC<Ipvalue> = ({ pVal }) => {
           className="plusBtn"
           icon={faPlusCircle}
           onClick={() => {
-            pVal(currentPeer);
+            pVal(currentPeer)
           }}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBox;
+export default SearchBox

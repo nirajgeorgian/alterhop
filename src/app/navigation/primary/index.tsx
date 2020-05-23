@@ -5,10 +5,10 @@
  *
  * @author nirajgeorgian@oojob.io (Niraj Georgian)
  *
- * Copyright (c) 2020 - oojob
+ * Copyright (c) 2020 - alterhop
  */
 
-import { Avatar, Button, Layout, Menu, Modal } from 'antd'
+import { Avatar, Button, Layout, Menu } from 'antd'
 import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -37,15 +37,6 @@ const Primary: React.FC<any> = ({ user }) => {
 					onClick={({ key }) => changeSelectedMenu(key)}>
 					<Link to="/profile" data-testid="profile">
 						<Avatar>P</Avatar>
-					</Link>
-				</Menu.Item>
-				<Menu.Item
-					key="3"
-					title="company"
-					className={isSelectedMenu('3')}
-					onClick={({ key }) => changeSelectedMenu(key)}>
-					<Link to="/company" data-testid="company">
-						<Avatar>C</Avatar>
 					</Link>
 				</Menu.Item>
 				<Menu.Item key="4" title="Add A Company">

@@ -59,7 +59,7 @@ const Range: React.FC<IRangeInputProps> = ({ value = {}, onChange }) => {
 			-{' '}
 			<InputNumber
 				value={value.max || max}
-				onChange={+onMaxChange}
+				onChange={onMaxChange}
 				style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
 				placeholder="Max"
 			/>
