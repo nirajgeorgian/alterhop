@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
+<<<<<<< HEAD
 import style from './style.module.less'
+=======
+>>>>>>> f8f15c7b32a0cddcc30bdfbabadbb30edef54840
 
 interface ITable {
 	selectedPeer: string
@@ -49,9 +52,13 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 	return (
 		<div>
 			<Table columns={columns} dataSource={data} />
+<<<<<<< HEAD
 			<div className={style.removePeerBtn}>
 				<button onClick={deletePeer}>Remove Peer</button>
 			</div>
+=======
+			<button onClick={deletePeer}>Remove Peer</button>
+>>>>>>> f8f15c7b32a0cddcc30bdfbabadbb30edef54840
 		</div>
 	)
 }

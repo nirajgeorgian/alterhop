@@ -14,8 +14,8 @@ import { Route, Switch } from 'react-router-dom'
 import ErrorPage from 'app/pages/error'
 import Message from 'app/pages/message'
 import Payment from 'app/pages/payment/page'
-import Profile from 'app/pages/profile/page'
 import Peer from 'app/pages/peer/page'
+import Profile from 'app/pages/profile/page'
 import React from 'react'
 import Test from 'app/pages/test/page'
 import style from 'app/style.module.less'
@@ -25,7 +25,6 @@ export const PrimaryRoutes: React.FC = () => (
 		<Switch>
 			<Route path="/profile" component={ProfileMenu} />
 			<Route path="/college" component={CompanyMenu} />
-			<Route path="/peer" component={Peer} />
 			<Route path="/" component={RootMenu} />
 			<Route path="*" component={ErrorPage} />
 		</Switch>
@@ -35,6 +34,7 @@ export const PrimaryRoutes: React.FC = () => (
 export const SecondaryRoutes: React.FC = () => (
 	<div className={style.routes}>
 		<Switch>
+			<Route path="/peer" exact component={Peer} />
 			<Route path="/test" exact component={Test} />
 			<Route path="/profile/messages" exact component={Message} />
 			<Route path="/profile/username" exact component={Profile} />
