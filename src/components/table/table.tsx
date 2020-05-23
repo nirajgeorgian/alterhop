@@ -1,79 +1,82 @@
-import React, { useState, useEffect } from "react";
-import { Table } from "antd";
+import React, { useState, useEffect } from 'react'
+import { Table } from 'antd'
+import style from './style.module.less'
 
 interface ITable {
-    selectedPeer: string
+	selectedPeer: string
 }
 
 const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
-    const [changes, setChanges] = useState<string>("");
+	const [changes, setChanges] = useState<string>('')
 
-    useEffect(() => {
-        setChanges(selectedPeer);
-    }, [selectedPeer]);
+	useEffect(() => {
+		setChanges(selectedPeer)
+	}, [selectedPeer])
 
-    const data = [
-    {
-        key: "1",
-        comparisonParameters: "Earnings Per Share (Rs)",
-        realianceIndustries: 55.47,
-        mrpl: 1.89,
-        peer: changes
-    },
-    {
-        key: "2",
-        comparisonParameters: "DPS (Rs)",
-        realianceIndustries: 6.5,
-        mrpl: 1.0,
-        peer: changes
-    },
-    {
-        key: "3",
-        comparisonParameters: "Book Value/Share (Rs)",
-        realianceIndustries: 639.41,
-        mrpl: 61.21,
-        peer: changes
-    },
-    {
-        key: "4",
-        comparisonParameters: "EBIT Margin (%)",
-        realianceIndustries: 14.24,
-        mrpl: 1.46,
-        peer: changes
-    }
-    ];
+	const data = [
+		{
+			key: '1',
+			comparisonParameters: 'Earnings Per Share (Rs)',
+			realianceIndustries: 55.47,
+			mrpl: 1.89,
+			peer: changes
+		},
+		{
+			key: '2',
+			comparisonParameters: 'DPS (Rs)',
+			realianceIndustries: 6.5,
+			mrpl: 1.0,
+			peer: changes
+		},
+		{
+			key: '3',
+			comparisonParameters: 'Book Value/Share (Rs)',
+			realianceIndustries: 639.41,
+			mrpl: 61.21,
+			peer: changes
+		},
+		{
+			key: '4',
+			comparisonParameters: 'EBIT Margin (%)',
+			realianceIndustries: 14.24,
+			mrpl: 1.46,
+			peer: changes
+		}
+	]
 
-    const deletePeer = () => setChanges("");
+	const deletePeer = () => setChanges('')
 
-    return (
-        <div>
-            <Table columns={columns} dataSource={data} />
-            <button onClick={deletePeer}>Remove Peer</button>
-        </div>
-    );
-};
+	return (
+		<div>
+			<Table columns={columns} dataSource={data} />
+			<div className={style.removePeerBtn}>
+				<button onClick={deletePeer}>Remove Peer</button>
+			</div>
+		</div>
+	)
+}
 
 const columns = [
-    {
-        title: "Comparison Parameters",
-        dataIndex: "comparisonParameters",
-        key: "comparisonParameters"
-    },
-    {
-        title: "Reliance Industries LTD",
-        dataIndex: "realianceIndustries",
-        key: "realianceIndustries"
-    },
-    {
-        title: "MRPL",
-        dataIndex: "mrpl",
-        key: "mrpl"
-    },
-    {
-        title: "Add a Peer",
-        dataIndex: "peer",
-        key: "peer"
-    }
-];
+	{
+		title: 'Comparison Parameters',
+		dataIndex: 'comparisonParameters',
+		key: 'comparisonParameters'
+	},
+	{
+		title: 'Reliance Industries LTD',
+		dataIndex: 'realianceIndustries',
+		key: 'realianceIndustries'
+	},
+	{
+		title: 'MRPL',
+		dataIndex: 'mrpl',
+		key: 'mrpl'
+	},
+	{
+		title: 'Add a Peer',
+		dataIndex: 'peer',
+		key: 'peer'
+	}
+]
 
-export default RenderTable;
+export default RenderTable

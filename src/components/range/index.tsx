@@ -12,45 +12,45 @@ interface IRangeInputProps {
 }
 
 const Range: React.FC<IRangeInputProps> = ({ value = {}, onChange }) => {
-	const [min, setMin] = useState(0)
-	const [max, setMax] = useState(0)
+	// const [min, setMin] = useState<number>(0)
+	// const [max, setMax] = useState<number>(0)
 
-	const triggerChange = (changedValue) => {
-		if (onChange) {
-			onChange({
-				min,
-				max,
-				...value,
-				...changedValue
-			})
-		}
-	}
+	// const triggerChange = (changedValue) => {
+	// 	if (onChange) {
+	// 		onChange({
+	// 			min,
+	// 			max,
+	// 			...value,
+	// 			...changedValue
+	// 		})
+	// 	}
+	// }
 
-	const onMinChange = (min: number | undefined) => {
-		if (min) {
-			setMin(min)
+	// const onMinChange = (min: number | undefined) => {
+	// 	if (min) {
+	// 		setMin(min)
 
-			triggerChange({
-				min
-			})
-		}
-	}
+	// 		triggerChange({
+	// 			min
+	// 		})
+	// 	}
+	// }
 
-	const onMaxChange = (max: number | undefined) => {
-		if (max) {
-			if (!('max' in value)) {
-				setMax(max)
-			}
+	// const onMaxChange = (max: number | undefined) => {
+	// 	if (max) {
+	// 		if (!('max' in value)) {
+	// 			setMax(max)
+	// 		}
 
-			triggerChange({
-				max
-			})
-		}
-	}
+	// 		triggerChange({
+	// 			max
+	// 		})
+	// 	}
+	// }
 
 	return (
 		<>
-			<InputNumber
+			{/* <InputNumber
 				value={value.min || min}
 				onChange={onMinChange}
 				style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
@@ -59,10 +59,10 @@ const Range: React.FC<IRangeInputProps> = ({ value = {}, onChange }) => {
 			-{' '}
 			<InputNumber
 				value={value.max || max}
-				onChange={+onMaxChange}
+				onChange={onMaxChange}
 				style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
 				placeholder="Max"
-			/>
+			/> */}
 		</>
 	)
 }
