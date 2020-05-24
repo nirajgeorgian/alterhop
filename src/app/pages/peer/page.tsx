@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import SearchBox from '../../../components/searchBox/searchBox'
-import Table from '../../../components/table/table'
-import style from './style.module.less'
-=======
 import './peer.css'
 
 import { Col, Row, Typography } from 'antd'
@@ -15,7 +9,6 @@ import Table from '../../../components/table/table'
 import styles from 'app/pages/peer/style.module.less'
 
 const { Title, Paragraph, Text } = Typography;
->>>>>>> f8f15c7b32a0cddcc30bdfbabadbb30edef54840
 
 const Peer: React.FC = () => {
 	const [peer, setPeer] = useState<string>('')
@@ -25,19 +18,6 @@ const Peer: React.FC = () => {
 	}
 
 	return (
-<<<<<<< HEAD
-		<div>
-			<div className={style.searchBoxDiv}>
-				<div className={style.searchBox}>
-					<p>Select a Peer to Compare</p>
-					<SearchBox pVal={getPeer} />
-				</div>
-			</div>
-			<div className={style.PeerTable}>
-				<Table selectedPeer={peer} />
-			</div>
-		</div>
-=======
 		<FullContainer>
 			<Row className={styles['peer-title']}>
 				<Col span={12}>
@@ -58,7 +38,6 @@ const Peer: React.FC = () => {
 				</Col>
 			</Row>
 		</FullContainer>
->>>>>>> f8f15c7b32a0cddcc30bdfbabadbb30edef54840
 	)
 }
 
