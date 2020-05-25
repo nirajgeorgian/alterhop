@@ -17,7 +17,7 @@ const SearchBox: React.FC<Ipvalue> = ({ pVal }) => {
 
 	return (
 		<div className={style.search}>
-			<Dropdown option={getSelected} />
+			<Dropdown option={getSelected} placeholder={'Select Peer to Compare'} />
 			<div>
 				<FontAwesomeIcon
 					className={style.plusBtn}

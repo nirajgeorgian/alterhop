@@ -4,10 +4,11 @@ import style from './style.module.less'
 
 interface IDropdown {
 	option: (getSelected: string) => void
+	placeholder: string
 }
 
-const DropDown: React.FC<IDropdown> = ({ option }) => {
-	const [selected, setSelected] = useState<string>('Select Peer to compare')
+const DropDown: React.FC<IDropdown> = ({ option, placeholder }) => {
+	const [selected, setSelected] = useState<string>(placeholder)
 	const onClick = (key: any) => {
 		setSelected(`Peer ${key.key}`)
 		option(`Peer ${key.key}`)

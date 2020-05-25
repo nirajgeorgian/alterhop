@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'antd'
+import Dropdown from '../dropdown/dropdown'
 import style from './style.module.less'
 
 interface ITable {
@@ -8,9 +9,17 @@ interface ITable {
 
 const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 	const [changes, setChanges] = useState<string>('')
+	const [university, setUniversity] = useState<string>('')
+
+	const getSelectedUniversity = (selectedValue: string) => {
+		setUniversity(selectedValue)
+	}
 
 	useEffect(() => {
 		setChanges(selectedPeer)
+		if (university === 'Peer 1') {
+			console.log('Gotcha Bitch')
+		}
 	}, [selectedPeer])
 
 	const data = [
@@ -44,6 +53,29 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 		}
 	]
 
+	const columns = [
+		{
+			title: 'Comparison Parameters',
+			dataIndex: 'comparisonParameters',
+			key: 'comparisonParameters'
+		},
+		{
+			title: <Dropdown option={getSelectedUniversity} placeholder={'Choose First University'} />,
+			dataIndex: 'firstUniversity',
+			key: 'firstUniversity'
+		},
+		{
+			title: <Dropdown option={getSelectedUniversity} placeholder={'Choose Second University'} />,
+			dataIndex: 'secondUniversity',
+			key: 'secondUniversity'
+		},
+		{
+			title: 'Add a Peer',
+			dataIndex: 'peer',
+			key: 'peer'
+		}
+	]
+
 	const deletePeer = () => setChanges('')
 
 	return (
@@ -55,28 +87,5 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 		</div>
 	)
 }
-
-const columns = [
-	{
-		title: 'Comparison Parameters',
-		dataIndex: 'comparisonParameters',
-		key: 'comparisonParameters'
-	},
-	{
-		title: 'Choose First University',
-		dataIndex: 'firstUniversity',
-		key: 'firstUniversity'
-	},
-	{
-		title: 'Choose Second University',
-		dataIndex: 'secondUniversity',
-		key: 'secondUniversity'
-	},
-	{
-		title: 'Add a Peer',
-		dataIndex: 'peer',
-		key: 'peer'
-	}
-]
 
 export default RenderTable
