@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'antd'
-import Dropdown from '../dropdown/dropdown'
+import SearchBox from '../searchBox/searchBox'
 import style from './style.module.less'
 
 interface ITable {
@@ -9,46 +9,108 @@ interface ITable {
 
 const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 	const [changes, setChanges] = useState<string>('')
-	const [university, setUniversity] = useState<string>('')
+	const [universityOne, setUniversityOne] = useState<string>('')
 
-	const getSelectedUniversity = (selectedValue: string) => {
-		setUniversity(selectedValue)
+	const [uniOne, setUniOneChanges] = useState({
+		EPS: 0,
+		DPS: 0,
+		BV: 0,
+		EBIT: 0
+	})
+
+	const [universityTwo, setUniversityTwo] = useState<string>('')
+
+	const [uniTwo, setUniTwoChanges] = useState({
+		EPS: 0,
+		DPS: 0,
+		BV: 0,
+		EBIT: 0
+	})
+
+	const getSelectedUniversityOne = (selectedValue: string) => {
+		setUniversityOne(selectedValue)
+	}
+
+	const getSelectedUniversityTwo = (selectedValue: string) => {
+		setUniversityTwo(selectedValue)
 	}
 
 	useEffect(() => {
 		setChanges(selectedPeer)
-		if (university === 'Peer 1') {
-			console.log('Gotcha Bitch')
+		if (universityOne === 'Peer 1') {
+			setUniOneChanges({
+				EPS: 55.47,
+				DPS: 6.5,
+				BV: 639.41,
+				EBIT: 14.24
+			})
+		} else if (universityOne === 'Peer 2') {
+			setUniOneChanges({
+				EPS: 1.89,
+				DPS: 1,
+				BV: 61.21,
+				EBIT: 1.46
+			})
+		} else if (universityOne === 'Peer 3') {
+			setUniOneChanges({
+				EPS: 30.89,
+				DPS: 2,
+				BV: 70.89,
+				EBIT: 5.99
+			})
 		}
-	}, [selectedPeer])
+
+		if (universityTwo === 'Peer 1') {
+			setUniTwoChanges({
+				EPS: 55.47,
+				DPS: 6.5,
+				BV: 639.41,
+				EBIT: 14.24
+			})
+		} else if (universityTwo === 'Peer 2') {
+			setUniTwoChanges({
+				EPS: 1.89,
+				DPS: 1,
+				BV: 61.21,
+				EBIT: 1.46
+			})
+		} else if (universityTwo === 'Peer 3') {
+			setUniTwoChanges({
+				EPS: 30.89,
+				DPS: 2,
+				BV: 70.89,
+				EBIT: 5.99
+			})
+		}
+	}, [selectedPeer, universityOne, universityTwo])
 
 	const data = [
 		{
 			key: '1',
 			comparisonParameters: 'Earnings Per Share (Rs)',
-			firstUniversity: 55.47,
-			secondUniversity: 1.89,
+			firstUniversity: uniOne.EPS,
+			secondUniversity: uniTwo.EPS,
 			peer: changes
 		},
 		{
 			key: '2',
 			comparisonParameters: 'DPS (Rs)',
-			firstUniversity: 6.5,
-			secondUniversity: 1.0,
+			firstUniversity: uniOne.DPS,
+			secondUniversity: uniTwo.DPS,
 			peer: changes
 		},
 		{
 			key: '3',
 			comparisonParameters: 'Book Value/Share (Rs)',
-			firstUniversity: 639.41,
-			secondUniversity: 61.21,
+			firstUniversity: uniOne.BV,
+			secondUniversity: uniTwo.BV,
 			peer: changes
 		},
 		{
 			key: '4',
 			comparisonParameters: 'EBIT Margin (%)',
-			firstUniversity: 14.24,
-			secondUniversity: 1.46,
+			firstUniversity: uniOne.EBIT,
+			secondUniversity: uniTwo.EBIT,
 			peer: changes
 		}
 	]
@@ -60,12 +122,12 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 			key: 'comparisonParameters'
 		},
 		{
-			title: <Dropdown option={getSelectedUniversity} placeholder={'Choose First University'} />,
+			title: <SearchBox pVal={getSelectedUniversityOne} placeholder={'Choose First University'} />,
 			dataIndex: 'firstUniversity',
 			key: 'firstUniversity'
 		},
 		{
-			title: <Dropdown option={getSelectedUniversity} placeholder={'Choose Second University'} />,
+			title: <SearchBox pVal={getSelectedUniversityTwo} placeholder={'Choose Second University'} />,
 			dataIndex: 'secondUniversity',
 			key: 'secondUniversity'
 		},

@@ -7,9 +7,10 @@ import style from './style.module.less'
 
 interface Ipvalue {
 	pVal: (getPeer: string) => void
+	placeholder: string
 }
 
-const SearchBox: React.FC<Ipvalue> = ({ pVal }) => {
+const SearchBox: React.FC<Ipvalue> = ({ pVal, placeholder }) => {
 	const [currentPeer, selectCurrentPeer] = useState<string>('')
 	const getSelected = (selectedValue: string) => {
 		selectCurrentPeer(selectedValue)
@@ -17,7 +18,7 @@ const SearchBox: React.FC<Ipvalue> = ({ pVal }) => {
 
 	return (
 		<div className={style.search}>
-			<Dropdown option={getSelected} placeholder={'Select Peer to Compare'} />
+			<Dropdown option={getSelected} placeholder={placeholder} />
 			<div>
 				<FontAwesomeIcon
 					className={style.plusBtn}

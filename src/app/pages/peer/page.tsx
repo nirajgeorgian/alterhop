@@ -26,7 +26,7 @@ const Peer: React.FC = () => {
 				</Col>
 				<Col span={12}>
 					<Paragraph>Select a Peer to Compare</Paragraph>
-					<SearchBox pVal={getPeer} />
+					<SearchBox pVal={getPeer} placeholder={'Select a Peer to Compare'} />
 				</Col>
 			</Row>
 			<Row className={styles['peer-content']}>
