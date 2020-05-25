@@ -1,5 +1,3 @@
-import './peer.css'
-
 import { Col, Row, Typography } from 'antd'
 import React, { useState } from 'react'
 
@@ -8,7 +6,7 @@ import SearchBox from '../../../components/searchBox/searchBox'
 import Table from '../../../components/table/table'
 import styles from 'app/pages/peer/style.module.less'
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph, Text } = Typography
 
 const Peer: React.FC = () => {
 	const [peer, setPeer] = useState<string>('')

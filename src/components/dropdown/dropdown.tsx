@@ -1,5 +1,6 @@
 import { Dropdown, Menu } from 'antd'
 import React, { useState } from 'react'
+import style from './style.module.less'
 
 interface IDropdown {
 	option: (getSelected: string) => void
@@ -21,9 +22,9 @@ const DropDown: React.FC<IDropdown> = ({ option }) => {
 	)
 
 	return (
-		<div id="dropdown-basic-button">
+		<div id={style['dropdown-basic-button']}>
 			<Dropdown overlay={menu}>
-				<a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+				<a className={style['ant-dropdown-link']} onClick={(e) => e.preventDefault()}>
 					{selected}
 				</a>
 			</Dropdown>

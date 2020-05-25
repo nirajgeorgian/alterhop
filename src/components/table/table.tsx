@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import { Table } from 'antd'
+import style from './style.module.less'
 
 interface ITable {
 	selectedPeer: string
@@ -17,29 +17,29 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 		{
 			key: '1',
 			comparisonParameters: 'Earnings Per Share (Rs)',
-			realianceIndustries: 55.47,
-			mrpl: 1.89,
+			firstUniversity: 55.47,
+			secondUniversity: 1.89,
 			peer: changes
 		},
 		{
 			key: '2',
 			comparisonParameters: 'DPS (Rs)',
-			realianceIndustries: 6.5,
-			mrpl: 1.0,
+			firstUniversity: 6.5,
+			secondUniversity: 1.0,
 			peer: changes
 		},
 		{
 			key: '3',
 			comparisonParameters: 'Book Value/Share (Rs)',
-			realianceIndustries: 639.41,
-			mrpl: 61.21,
+			firstUniversity: 639.41,
+			secondUniversity: 61.21,
 			peer: changes
 		},
 		{
 			key: '4',
 			comparisonParameters: 'EBIT Margin (%)',
-			realianceIndustries: 14.24,
-			mrpl: 1.46,
+			firstUniversity: 14.24,
+			secondUniversity: 1.46,
 			peer: changes
 		}
 	]
@@ -49,7 +49,9 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 	return (
 		<div>
 			<Table columns={columns} dataSource={data} />
-			<button onClick={deletePeer}>Remove Peer</button>
+			<div className={style.removePeerBtn}>
+				<button onClick={deletePeer}>Remove Peer</button>
+			</div>
 		</div>
 	)
 }
@@ -61,14 +63,14 @@ const columns = [
 		key: 'comparisonParameters'
 	},
 	{
-		title: 'Reliance Industries LTD',
-		dataIndex: 'realianceIndustries',
-		key: 'realianceIndustries'
+		title: 'Choose First University',
+		dataIndex: 'firstUniversity',
+		key: 'firstUniversity'
 	},
 	{
-		title: 'MRPL',
-		dataIndex: 'mrpl',
-		key: 'mrpl'
+		title: 'Choose Second University',
+		dataIndex: 'secondUniversity',
+		key: 'secondUniversity'
 	},
 	{
 		title: 'Add a Peer',
