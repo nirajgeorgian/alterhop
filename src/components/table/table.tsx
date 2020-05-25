@@ -142,7 +142,7 @@ const RenderTable: React.FC<ITable> = ({ selectedPeer }) => {
 
 	return (
 		<div>
-			<Table columns={columns} dataSource={data} />
+			<Table columns={columns} dataSource={data} pagination={false} />
 			<div className={style.removePeerBtn}>
 				<button onClick={deletePeer}>Remove Peer</button>
 			</div>
