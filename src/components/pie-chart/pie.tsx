@@ -4,9 +4,9 @@ import * as d3 from 'd3'
 // interface IArc {
 // 	data: []
 // 	index: number
-// 	createArc: (() => void)
-// 	colors: number
-// 	format: string
+// 	createArc: ((d) => any)
+// 	colors: ((index) => any)
+// 	format: any
 // }
 
 const Arc = ({ data, index, createArc, colors, format }) => (
