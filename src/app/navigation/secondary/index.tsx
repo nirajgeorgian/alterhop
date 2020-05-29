@@ -30,10 +30,16 @@ export const RootMenu: React.FC = () => (
 				<span>scholarships</span>
 			</Link>
 		</Menu.Item>
-		<Menu.Item key="2" className={styles['menu-item']}>
+		<Menu.Item key="3" className={styles['menu-item']}>
 			<Link to="/peer" data-testid="sec-companies">
 				<VideoCameraOutlined />
 				<span>comparison peer</span>
+			</Link>
+		</Menu.Item>
+		<Menu.Item key="4" className={styles['menu-item']}>
+			<Link to="/report" data-testid="sec-companies">
+				<VideoCameraOutlined />
+				<span>Report</span>
 			</Link>
 		</Menu.Item>
 	</Menu>
