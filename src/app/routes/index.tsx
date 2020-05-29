@@ -15,6 +15,7 @@ import ErrorPage from 'app/pages/error'
 import Message from 'app/pages/message'
 import Payment from 'app/pages/payment/page'
 import Peer from 'app/pages/peer/page'
+import Report from 'app/pages/report/report'
 import Profile from 'app/pages/profile/page'
 import React from 'react'
 import Test from 'app/pages/test/page'
@@ -36,6 +37,7 @@ export const SecondaryRoutes: React.FC = () => (
 		<Switch>
 			<Route path="/peer" exact component={Peer} />
 			<Route path="/test" exact component={Test} />
+			<Route path="/report" exact component={Report} />
 			<Route path="/profile/messages" exact component={Message} />
 			<Route path="/profile/username" exact component={Profile} />
 			<Route path="/colleges/branch" component={Test} />
