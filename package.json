@@ -23,6 +23,7 @@
     "font-awesome": "^4.7.0",
     "graphql": "^15.0.0",
     "less": "^3.11.1",
+    "method-override": "^3.0.0",
     "module-alias": "^2.2.2",
     "moment": "2.24.0",
     "morgan": "^1.10.0",
@@ -35,7 +36,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "echo \"create a production build\"",
+    "start": "node server.js",
     "start:dev": "react-app-rewired start --host 0.0.0.0",
     "build": "react-app-rewired build",
     "test:watch": "react-app-rewired test --env=jsdom --silent",
